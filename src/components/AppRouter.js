@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route,Switch,HashRouter} from 'react-router-dom' ;
+import {Route,Switch} from 'react-router-dom' ;
 import Carrer from './Career';
 import Home from './Home';
 import Contact from './Contact';
@@ -11,7 +11,6 @@ import AdminDash from './Admin/AdminDash';
 import AdminLogin from './Admin/AdminLogin';
 
 const AppRouter = ()=>(
-    <HashRouter>
     <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/career" component={Carrer}></Route>
@@ -24,6 +23,5 @@ const AppRouter = ()=>(
         <Route exact path="/admlogin" component={AdminLogin}></Route>
 
     </Switch>
-    </HashRouter>
 ) 
 export default AppRouter;
