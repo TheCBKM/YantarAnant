@@ -1,33 +1,283 @@
-.App {
+.navbarcss{
+  background: #F7971E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.nav-item > *{
+  font-size: calc(15px + 1vw) !important;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.home-row{
+  width:100%;
+  background-color: rgba(245, 245, 245,0 );
+  opacity: .8;
+  padding-bottom: 5%;
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+
+}
+.home-col{
   text-align: center;
+  margin-top: 15%; 
+  
+}
+.home-col:hover{
+ color:brown;
+}
+.home-page-sec1{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("images/jcb1.jpg");  background-repeat:no-repeat;
+
+  background:  rgb(22, 18, 18,)  ; 
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+ 
+ /* ag@94798 */
+
+
+}
+.content{
+margin-left: 0px;
+width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.router{
+  background-position-x: 0px;
+  background-position-y: 0px;
+}
+.home-page-sec2 hr {
+ 
+background-color: rgb(173, 90, 100);
+height: 5px;
+width:50%; margin-left:25% !important; margin-right:25% !important;
+}
+.rental-page-sec2 hr {
+  
+  background-color: rgb(173, 90, 100);
+  height: 5px;
+  width:50%; margin-left:25% !important; margin-right:25% !important;
+  }
+.home-page-sec2 {
+  background: #fffc00;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #fffc00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #fffc00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.home-col2{
+  text-align: center;
+  font-family:  Georgia
+  
+}
+.home-col2:hover{
+ color:rgb(22, 131, 134);
+}
+
+.footer a {
+  font-size: calc(.5em + .5vw);
+  line-height: 1em;
+}
+
+.mb-3{
+  color:blue ;
+}
+.rental-col{
+  text-align: center;
+  padding-bottom: 2%;
+}
+.rental-sec1{
+  height: 300px;
+  padding-top:5%;
+  text-align: center;
+  font-family: 'Cambria';
+  font-size: calc(1em + 3vw) !important;
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("images/construction-excavator-site-4510.jpg");  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+ color: crimson 
+}
+
+
+.login{
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("images/blade-bucket-construction-162515.jpg");  background-repeat:no-repeat;
+background-position: center;
+  /* background-color: #F7971E; */
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+  padding-left: 25%;
+  padding-bottom: 10%;
+  padding-top:3%;
+}
+
+#root{
+  width:100%;
+  height: 100%;
+}
+.login-card{
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("images/logo.png");  background-repeat:no-repeat;
+
+  background-size:contain;
+  text-align:center;
+  width: 60%;
+  min-width: 300px;
+ 
+ 
+}
+
+
+.navrow{
+width:100%;
+display: flex
+
+}
+.navbar-dash{
+  background: #2980B9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.navcol{
+  width:100%;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:calc(.6em + .5vw);
+ padding-left: 0px;
+ padding-right: 0px;
+    box-shadow: 0px 0px 1px 1x rgba(12, 155, 180, 0.932) !important;
+   
+}
+
+
+.dash-logo{
+  width:calc(30% + 5vw);
+}
+.mdl-tabs__tab-bar{
+  color: #F7971E
+}
+.dash-table   {
+  width: 100% !important;
+ text-align: center;
+ background: #fffc00;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #fffc00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #fffc00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+ 
+ background-size:cover;
+ background-position:center;
+}
+.dash-table  td {
+ 
+ text-align: center;
+   box-shadow:2px  .2px .2px .5px rgb(243, 207, 6);
+   padding: 1%;
+   
+}
+.dash-table tbody{
+  width: 100% ;
+  font-size: calc(0.3em + 1.5vw);
+  font-family: Verdana;
+}
+
+.ed-table{
+  width: 100% !important;
+  text-align: center; 
+}
+.ed-table th{
+ 
+  color: #2980B9
+}
+.ed-table tbody{
+  width: 100% ;
+  font-size: calc(0.3em + 1.5vw);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.is-active{
+  background-color: rgb(237, 240, 97)
+} 
+
+.dash-tab{
+
+  font-size: calc(0.5em + .8vw);
+  
+}
+
+
+
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
   color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style the container */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
   }
 }
+
+.dash-tabh{
+  width:calc(100px + 100vw);
+  height: 60px !important;
+  align-content: center !important;
+margin-bottom: 200px !important;
+ 
+}
+
+
+
