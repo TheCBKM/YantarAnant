@@ -32,7 +32,7 @@ class Login extends Component {
                 axios.defaults.headers.common['w_auth'] = res.data.w_auth;
                 console.log(res.data)
                 setStorage("uid", res.data);
-                window.location.pathname = `/dash`
+                window.location.assign("http://localhost:3000/#/dash");
             }
             else alert("Enter correct details")
         })

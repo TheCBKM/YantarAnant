@@ -50,7 +50,7 @@ class AppNavbar extends React.Component {
                                     <DropdownMenu right>
                                         <DropdownItem>
                                        < NavItem>
-                                <NavLink href="/rentalservices">Rental</NavLink>
+                                <NavLink href="/#/rentalservices">Rental</NavLink>
                             </NavItem>
                   </DropdownItem>
                                         <DropdownItem>
@@ -78,7 +78,7 @@ class AppNavbar extends React.Component {
 
 
                             <NavItem>
-                                <NavLink href="/login">Login/Signup</NavLink>
+                                <NavLink href="/#/login">Login/Signup</NavLink>
                             </NavItem>
 
                         </Nav>

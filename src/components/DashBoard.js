@@ -29,7 +29,7 @@ class DashBoard extends Component {
             console.log(obj)
         }
         else {
-            window.location.pathname=`/login`
+            window.location.pathname=`/#/login`
         }
 
 
@@ -97,7 +97,7 @@ class DashBoard extends Component {
                             </Col>
                             <Col className="navrow">
                             
-                            <i onClick={ () => {removeStorage('uid');  window.location.pathname="/login" } } style={ { color: "orange" ,textSize:"200px" } } class="fa fa-sign-out fa-3x" aria-hidden="true"><div style={{fontSize:"calc(.2em + 1vh)"}}>Logout</div></i>
+                            <i onClick={ () => {removeStorage('uid');  window.location.pathname="/#/login" } } style={ { color: "orange" ,textSize:"200px" } } class="fa fa-sign-out fa-3x" aria-hidden="true"><div style={{fontSize:"calc(.2em + 1vh)"}}>Logout</div></i>
                             
                   
                             </Col>
