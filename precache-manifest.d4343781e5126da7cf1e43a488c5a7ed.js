@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6034430343994bf7e01ec3ead650e4ee",
+    "revision": "f64df960b41f3cae399317737d281857",
     "url": "/YantarAnant/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/YantarAnant/static/css/2.bd37c58a.chunk.css"
   },
   {
-    "revision": "475fed4de1bb3b141db5",
+    "revision": "e919413eea9830f2ab94",
     "url": "/YantarAnant/static/css/main.4f4c6919.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/YantarAnant/static/js/2.e86e8e91.chunk.js"
   },
   {
-    "revision": "475fed4de1bb3b141db5",
-    "url": "/YantarAnant/static/js/main.3d6754ae.chunk.js"
+    "revision": "e919413eea9830f2ab94",
+    "url": "/YantarAnant/static/js/main.1b13c992.chunk.js"
   },
   {
     "revision": "26e052f36410f0b01334",
