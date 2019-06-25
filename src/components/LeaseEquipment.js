@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
-import { link, location, getStorage, removeStorage } from './urls';
+import { link, route, getStorage, removeStorage } from './urls';
 import ExtraDetails from './ExtraDetails';
 import Spinners from './Spinners';
 
@@ -28,7 +28,8 @@ class LeaseEquipment extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname = `/login`
+            
+            route("/login")
         }
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { link, getStorage,removeStorage } from './urls';
+import { link, Route ,getStorage,removeStorage, route } from './urls';
 
 import axios from 'axios';
 import { Row } from 'reactstrap';
@@ -35,7 +35,7 @@ class ViewProfile extends Component {
 
         }
         else {
-            window.location.pathname = `/dash`;
+            route('/dash')
         }
     }
     updatedata = () => {
@@ -55,7 +55,8 @@ class ViewProfile extends Component {
             .then((res) => {
                 console.log(res);
                 removeStorage('uid'); 
-                window.location.pathname = `/dash`;
+               // window.location.reload()
+                route('/login')
             })
     }
     handleUserInput(e) {
@@ -114,7 +115,7 @@ class ViewProfile extends Component {
                         </div></Col>
                         <Col>
                     <div>
-                        < button onClick={ () => { window.location.pathname = "/dash" } } >Cancle</ button>
+                        < button onClick={ () => { window.location.reload() } } >Cancle</ button>
 
                     </div>
                     </Col>

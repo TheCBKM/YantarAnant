@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
-import { link, location ,getStorage} from '../urls';
+import { link, route ,getStorage} from '../urls';
 import Spinners from '../Spinners';
 import Spinner from 'react-bootstrap/Spinner'
-
+import EditSubCategory from './EditSubCategory'
+ 
 class AddSubCategory extends Component {
 
 
@@ -28,7 +29,8 @@ class AddSubCategory extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname=`/adm`
+           
+            route("/admlogin");
         }
 
 
@@ -69,13 +71,13 @@ class AddSubCategory extends Component {
             
           }
         console.log(sendData);
-        // axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
-        // axios.post(`${link}/subcategory/save`, sendData)
-        //     .then((res) => {
-        //         console.log(res);
-        //         // alert("Equipment Added")
-        //         window.location.pathname=`/adm`;
-        //     })
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.post(`${link}/subcategory/save`, sendData)
+            .then((res) => {
+                console.log(res);
+                 alert("sub Category Added")
+                 window.location.reload(); 
+            })
         
     
     }
@@ -83,6 +85,7 @@ class AddSubCategory extends Component {
     render() {
         return (
             <div>
+                <EditSubCategory/>
                <Row>
                 <Col>
                     <label>Category Name*</label>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { location, link ,getStorage} from './urls';
+import { route, link ,getStorage} from './urls';
 import axios from 'axios';
 
 class FeedBack extends Component {
@@ -30,7 +30,8 @@ class FeedBack extends Component {
             console.log(obj)
         }
         else {
-            window.location.pathname=`/login`
+           
+            route("/login")
         }
 
 
@@ -45,7 +46,8 @@ class FeedBack extends Component {
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.post(`${link}/feedback/save`,sendData).then((res)=>{
             console.log(res);
-            window.location.pathname=`/dash`
+            window.location.reload()
+            //route("/dash")
         })
     }
     render() {

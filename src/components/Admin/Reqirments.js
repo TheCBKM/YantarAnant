@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { link, location, getStorage } from '../urls';
+import { link, route, getStorage } from '../urls';
 import Button from 'react-bootstrap/Button';
 import Spinners from '../Spinners';
 import AddCategory from './AddCategory';
@@ -24,7 +24,8 @@ class Requirments extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname = `/admlogin`
+            
+            route("/admlogin")
         }
 
     }
@@ -36,7 +37,8 @@ class Requirments extends Component {
         axios.delete(`${link}/requirement/delete`, sendData).then((res) => {
             console.log(res);
             // alert("Equipment Deleted")
-            window.location.pathname = `/adm`;
+        window.location.reload();
+            //route("/adm")
         })
 
     }
@@ -85,7 +87,7 @@ class Requirments extends Component {
                         </thead> <tbody>
                             { details.map(d =>
                                 <tr>
-                                    <td>{ d.subcategory.name }</td>
+                                    <td>{(d.subcategory)? d.subcategory.name:"No data" }</td>
                                     <td>{ d.capacity }</td>
                                     <td>{ d.tenure }</td>
                                     <td>{ new Date(d.createdAt)

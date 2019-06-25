@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { link, location, getStorage ,isNumber} from '../urls';
+import { link, route, getStorage ,isNumber} from '../urls';
 import { Tab, Tabs } from 'react-mdl'
 import Category from './Category';
 import SubCategory from './SubCategory';
@@ -23,7 +23,7 @@ class MasterCategory extends Component {
             console.log(obj)                      
         }
         else {
-            window.location.pathname=`/admlogin`
+            route("/admlogin")
         }
 
     }

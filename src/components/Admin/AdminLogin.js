@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import axios from 'axios';
-import { link, location, setStorage ,isNumber} from '../urls';
+import { link, route, setStorage ,isNumber} from '../urls';
 class AdminLogin extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +32,8 @@ class AdminLogin extends Component {
                 axios.defaults.headers.common['w_auth'] = res.data.w_auth;
                 console.log(res.data)
                 setStorage("aid", res.data);
-                window.location.pathname = `/adm`
+                
+                route("/adm")
             }
             else alert("Enter correct details")
         })

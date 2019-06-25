@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import axios from 'axios';
-import { link, location, setStorage ,isNumber} from './urls';
+import { link, route, setStorage ,isNumber} from './urls';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +32,7 @@ class Login extends Component {
                 axios.defaults.headers.common['w_auth'] = res.data.w_auth;
                 console.log(res.data)
                 setStorage("uid", res.data);
-                window.location.assign("http://localhost:3000/#/dash");
+                route("/dash")
             }
             else alert("Enter correct details")
         })

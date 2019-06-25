@@ -32,7 +32,7 @@ class AppNavbar extends React.Component {
         return (
             <div>
                 <Navbar className="navbarcss" light expand="md">
-                    <NavbarBrand href="/"><img alt="logo" style={ { height: '200px', width: '200px' } } src={ logo }></img></NavbarBrand>
+                    <NavbarBrand href="/"><img alt="logo" style={ { height: '150px', width: '200px' } } src={ logo }></img></NavbarBrand>
                     <NavbarToggler onClick={ this.toggle } />
                     <Collapse isOpen={ this.state.isOpen } navbar>
                         <Nav className="ml-auto" navbar>
@@ -50,7 +50,7 @@ class AppNavbar extends React.Component {
                                     <DropdownMenu right>
                                         <DropdownItem>
                                        < NavItem>
-                                <NavLink href="/#/rentalservices">Rental</NavLink>
+                                <NavLink href="/YantarAnant/#/rentalservices">Rental</NavLink>
                             </NavItem>
                   </DropdownItem>
                                         <DropdownItem>
@@ -78,7 +78,7 @@ class AppNavbar extends React.Component {
 
 
                             <NavItem>
-                                <NavLink href="/#/login">Login/Signup</NavLink>
+                                <NavLink href="/YantarAnant/#/login">Login/Signup</NavLink>
                             </NavItem>
 
                         </Nav>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
-import { link, location ,getStorage} from '../urls';
+import { link, route ,getStorage} from '../urls';
 import Spinners from '../Spinners';
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -25,7 +25,7 @@ class AddCategory extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname=`/adm`
+            route("/admlogin");
         }
 
 
@@ -55,8 +55,9 @@ class AddCategory extends Component {
         axios.post(`${link}/category/save`, sendData)
             .then((res) => {
                 console.log(res);
-                // alert("Equipment Added")
-                window.location.pathname=`/adm`;
+                 alert("Category Added")
+                 window.location.reload(); 
+               // route("/adm");
             })
         
     

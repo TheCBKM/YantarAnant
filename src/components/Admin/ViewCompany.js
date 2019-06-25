@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { link, location, getStorage } from '../urls';
+import { link, route, getStorage } from '../urls';
 import Button from 'react-bootstrap/Button';
 import Spinners from '../Spinners';
 import AddCompany from './AddCompany';
@@ -25,7 +25,8 @@ class ViewCompany extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname = `/admlogin`
+         
+            route("/admlogin")
         }
 
 
@@ -41,7 +42,8 @@ class ViewCompany extends Component {
         axios.delete(`${link}/company/delete`, sendData).then((res) => {
             console.log(res);
             // alert("Equipment Deleted")
-            window.location.pathname=`/adm`;
+            window.location.reload()
+            //route("/adm")
         })
         
     }

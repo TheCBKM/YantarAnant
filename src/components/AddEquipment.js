@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
-import { link, location ,getStorage} from './urls';
+import { link, route ,getStorage} from './urls';
 import Spinners from './Spinners';
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -60,7 +60,9 @@ class AddEquipment extends Component {
             .then((res) => {
                 console.log(res);
                 // alert("Equipment Added")
-                window.location.pathname=`/dash`;
+                alert("Equipment added")
+                //route("/dash")
+               window.location.reload(); 
             })
         }
         else alert("enter correct details")
@@ -73,7 +75,9 @@ class AddEquipment extends Component {
             console.log(obj)
         }
         else {
-            window.location.pathname=`/dash`;
+          
+            route("/login")
+            //window.location.reload(); 
         }
     }
 
@@ -103,7 +107,7 @@ class AddEquipment extends Component {
                     : <></> }
                 <Row>
                     <Col>
-                        <label>Equipment Name*</label>
+                        <label>Equipments Name*</label>
 
                         <select name="eqid" onChange={ (event) => this.handleUserInput(event) }>
                         <option value={ -1} >Choose........</option>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
-import { link, location,getStorage } from './urls';
+import { link, route,getStorage  } from './urls';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import AddEquipment from './AddEquipment'
@@ -35,7 +35,8 @@ class Equipment extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname=`/login`
+      
+            route("/login")
         }
 
 
@@ -70,8 +71,9 @@ class Equipment extends Component {
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.delete(`${link}/equipment/delete`, sendData).then((res) => {
             console.log(res);
-            // alert("Equipment Deleted")
-            window.location.pathname=`/dash`;
+             alert("Equipment Deleted")
+            window.location.reload()
+            //route("/dash")
         })
         
     }

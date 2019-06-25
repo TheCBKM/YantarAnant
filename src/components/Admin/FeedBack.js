@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { link, location, getStorage } from '../urls';
+import { link, route, getStorage } from '../urls';
 import Button from 'react-bootstrap/Button';
 import Spinners from '../Spinners';
 import AddCategory from './AddCategory';
@@ -23,7 +23,8 @@ class FeedBack extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname = `/admlogin`
+           route("/admlogin")
+            
         }
 
     }
@@ -37,6 +38,7 @@ class FeedBack extends Component {
                 nodata: false
             })
           // console.log(this.state.feeddata)
+          
 
         })
     }

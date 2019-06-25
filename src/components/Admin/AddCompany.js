@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
-import { link, location ,getStorage} from '../urls';
+import { link, route ,getStorage} from '../urls';
 import Spinners from '../Spinners';
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -45,7 +45,8 @@ class AddCompany extends Component {
             console.log(obj)
         }
         else {
-            window.location.pathname=`/dash`;
+            route("/admlogin");
+            
         }
     }
 
@@ -70,8 +71,9 @@ class AddCompany extends Component {
         axios.post(`${link}/company/save`, sendData)
             .then((res) => {
                 console.log(res);
-                // alert("Equipment Added")
-                window.location.pathname=`/adm`;
+                 alert("Company Added")
+                window.location.reload(); 
+                //route("/adm")
             })
         
     

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Tab, Tabs } from 'react-mdl'
-import { link, location, getStorage ,isNumber} from '../urls';
+import { link, route, getStorage, isNumber } from '../urls';
 import axios from 'axios';
 import Updates from './Updates';
 import ViewCompany from './ViewCompany';
@@ -26,42 +26,44 @@ class AdminDash extends Component {
         if (getStorage('aid')) {
             const obj = getStorage('aid')
             this.state.data = obj;
-            console.log(obj)          
+            console.log(obj)
         }
         else {
-            window.location.pathname=`/admlogin`
+
+            route("/admlogin");
         }
 
     }
-    
+
     toggelCategories() {
         if (this.state.activeTab == 0) {
-            return (<div><MasterCategory/></div>)
+            return (<div><MasterCategory /></div>)
         }
         else if (this.state.activeTab == 1) {
-            return (<div><ViewCompany/></div>)
+            return (<div><ViewCompany /></div>)
         }
         else if (this.state.activeTab == 2) {
-            return (<div><Updates/></div>)
+            return (<div><Updates /></div>)
         }
         else if (this.state.activeTab == 3) {
-            return (<div><Reqirments/></div>)}
+            return (<div><Reqirments /></div>)
+        }
         else if (this.state.activeTab == 4) {
-            return (<div><FeedBack/></div>)
+            return (<div><FeedBack /></div>)
         }
     }
 
     render() {
         const data = this.state.data
-        const usr = data.user;  
+        const usr = data.user;
         return (
             <div>
-                <nav class="navbar navbar-dash " style={{backgroundColor:" #fffc00;"}}>
-                <Row className="navrow">
+                <nav class="navbar navbar-dash " style={ { backgroundColor: " #fffc00;" } }>
+                    <Row className="navrow">
                         <Col className="navcol">
-                        
-                        <img className="dash-logo" src={logo} alt="YantAnant"/>
-                
+
+                            <img className="dash-logo" src={ logo } alt="YantAnant" />
+
                         </Col>
                         <Col className="navcol">
                             <div className="navhed"> Company NAME</div>
@@ -70,23 +72,23 @@ class AdminDash extends Component {
                         <Col className="navcol">
                             <div> ADMIN</div>
                             { usr.name }
-                            </Col>
-                            <Col className="navcol">
-                                <div >  CONTACT </div>
-                                { usr.company.contactNumber }
-                            </Col>
-                            <Col className="navrow">
-                            
-                            <i onClick={ () => {removeStorage('aid');  window.location.pathname="/adm" } } style={ { color: "orange" ,textSize:"200px" } } class="fa fa-sign-out fa-3x" aria-hidden="true"><div style={{fontSize:"calc(.2em + 1vh)"}}>Logout</div></i>
-                            
-                  
-                            </Col>
-                      
+                        </Col>
+                        <Col className="navcol">
+                            <div >  CONTACT </div>
+                            { usr.company.contactNumber }
+                        </Col>
+                        <Col className="navrow">
+
+                            <i onClick={ () => { removeStorage('aid'); route("/admlogin"); } } style={ { color: "orange", textSize: "200px" } } class="fa fa-sign-out fa-3x" aria-hidden="true"><div style={ { fontSize: "calc(.2em + 1vh)" } }>Logout</div></i>
+
+
+                        </Col>
+
 
 
                     </Row>
-                    </nav>
-                
+                </nav>
+
                 <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
                     <Tab className="dash-tabh" ><h1 className="dash-tab" >Master Category       </h1></Tab>
                     <Tab className="dash-tabh"  ><h1 className="dash-tab">Company</h1></Tab>
@@ -100,6 +102,7 @@ class AdminDash extends Component {
                     { this.toggelCategories() }
                     { console.log(this.state.activeTab) }
                 </section>
+                    
             </div>
         );
     }

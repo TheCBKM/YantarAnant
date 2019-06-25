@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { link, location, getStorage, isNumber } from '../urls';
+import { link, route, getStorage, isNumber } from '../urls';
 import axios from 'axios';
 import { Row, Col, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import NumberCount from '../NumberCount'
@@ -64,7 +64,8 @@ class Updates extends Component {
 
         }
         else {
-            window.location.pathname = `/admlogin`
+            
+            route("/admlogin")
         }
 
     }

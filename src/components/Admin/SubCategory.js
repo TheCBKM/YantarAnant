@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { link, location, getStorage } from '../urls';
+import { link, route, getStorage } from '../urls';
 import Button from 'react-bootstrap/Button';
 import Spinners from '../Spinners';
 import AddSubCategory from './AddSubCategory';
+import EditSubCategory from './EditSubCategory';
 
 class SubCategory extends Component {
     constructor(props, context) {
@@ -24,7 +25,8 @@ class SubCategory extends Component {
             this.state.data = obj;
         }
         else {
-            window.location.pathname = `/admlogin`
+           
+            route("/admlogin")
         }
 
     }
@@ -36,7 +38,8 @@ class SubCategory extends Component {
         axios.delete(`${link}/subcategory/delete`, sendData).then((res) => {
             console.log(res);
             // alert("Equipment Deleted")
-            window.location.pathname=`/adm`;
+            window.location.reload()
+           // route("/adm")
         })
         
     }
@@ -83,7 +86,6 @@ class SubCategory extends Component {
                                         <tr>
                                             <th> Name</th>
                                             <th> Radius</th>
-                                            
                                             <th>Action</th>
                                         </tr>
                                     </thead> <tbody>
@@ -94,7 +96,15 @@ class SubCategory extends Component {
                                                 
                                                 <td><div style={ { color: "red" } } onClick={ () => this.delet((d.id)) }>
                                                     <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                                                </div></td>
+                                                </div>
+                                                <div >
+                                                    <EditSubCategory
+                                                    ename={d.name }
+                                                    radius={d.radius}
+                                                    id={d.id}
+                                                    />
+                                                </div>
+                                                </td>
                                             </tr>)
                                         }
 

@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import Spinners from './Spinners';
 
 
-import { link, location, getStorage } from './urls';
+import { link, route, getStorage } from './urls';
 
 class AddREquip extends Component {
 
@@ -63,8 +63,9 @@ class AddREquip extends Component {
             axios.post(`${link}/requirement/save`, sendData)
                 .then((res) => {
                     console.log(res);
-                    // alert("Equipment Added")
-                    window.location.pathname = `/dash`;
+                     alert("Equipment Added")
+                    window.location.reload()
+                   // route("/dash")
                 })
         }
         else alert("enter correct details")
@@ -77,7 +78,7 @@ class AddREquip extends Component {
             console.log(obj)
         }
         else {
-            window.location.pathname = `/login`
+            route("/login")
         }
 
 
