@@ -22,7 +22,7 @@ import towercrane from './images/Towercrane.png';
 import trailertruck from './images/trailertruck.png';
 import transitmixer from './images/transit-mixer.png';
 import truckMountedCrane from './images/Truck-Mounted-Crane.png';
-import bucketbulldozerclouds from './images/bucket-bulldozer-clouds.jpg';
+import bucketbulldozerclouds from './images/architecture-buildings-business-190417.jpg';
 export {
     jcb1,
     logo,

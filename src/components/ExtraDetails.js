@@ -22,9 +22,13 @@ class ExtraDetails extends Component {
         return (
             <div>
                 <div>
-                    <Button color="danger" onClick={ this.toggle }>{ this.props.buttonLabel }Details</Button>
+                    <Button color="danger"  style={ { fontSize: "calc(5px + 1vh)" } } onClick={ this.toggle }>{ this.props.buttonLabel }Details</Button>
                     <Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
-                        <ModalHeader toggle={ this.toggle }>Details</ModalHeader>
+                        <ModalHeader  toggle={ this.toggle }>
+                            <div>
+                                Details
+                            </div>
+                        </ModalHeader>
                         <ModalBody>
                             <table class=" ed-table">
                                 <thead>
@@ -43,7 +47,7 @@ class ExtraDetails extends Component {
 
                                 </tbody>
                             </table>
-                            <br/>
+                            <br />
                             <table class="  ed-table">
                                 <thead>
                                     <tr>
@@ -57,13 +61,13 @@ class ExtraDetails extends Component {
                                     <tr>
                                         <td>{ cn }</td>
                                         <td>{ cp }</td>
-                                        <td><a href={`tel:${cnu}`}>{cnu}</a></td>
-                                        <td>{em}</td>
+                                        <td><a href={ `tel:${cnu}` }>{ cnu }</a></td>
+                                        <td>{ em }</td>
                                     </tr>
 
                                 </tbody>
                             </table>
-                            <br/>
+                            <br />
                             <table class="  ed-table">
                                 <thead>
                                     <tr>
@@ -77,10 +81,10 @@ class ExtraDetails extends Component {
                                         <td>{ ct }</td>
                                         <td>{ pin }</td>
                                         <td>{ new Date(doc)
-                                                .toString()
-                                                .split(" ")
-                                                .slice(0, 4)
-                                                .join(" ") || "NO DATA" }</td>
+                                            .toString()
+                                            .split(" ")
+                                            .slice(0, 4)
+                                            .join(" ") || "NO DATA" }</td>
                                     </tr>
 
                                 </tbody>

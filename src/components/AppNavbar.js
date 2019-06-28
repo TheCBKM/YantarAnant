@@ -75,7 +75,10 @@ class AppNavbar extends React.Component {
                             <NavItem>
                                 <NavLink href="/contact">Contact</NavLink>
                             </NavItem>
-
+                           
+                            <NavItem>
+                            <div id="google_translate_element"></div>
+                            </NavItem>
 
                             <NavItem>
                                 <NavLink href="/YantarAnant/#/login">Login/Signup</NavLink>

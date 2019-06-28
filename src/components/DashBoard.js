@@ -9,6 +9,7 @@ import LeaseEquipment from './LeaseEquipment';
 import FeedBack from './FeedBack';
 import { logo } from '../Appimages'
 import ViewProfile from './ViewProfile';
+import SlideHome from './SlideHome';
 
 
 class DashBoard extends Component {
@@ -38,7 +39,9 @@ class DashBoard extends Component {
 
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+
+        document.title = 'Dashboard-YantarAnant';
 
 
     }
@@ -68,7 +71,7 @@ class DashBoard extends Component {
                 <div id="cover-spin"></div>
 
 
-                <nav class="navbar navbar-dash " style={ { backgroundColor: " #fffc00;" } }>
+                <nav class=" navbar-dash " style={ { backgroundColor: " #fffc00;" } }>
 
                     {/*                     
                     <button class="btn btn-outline-primary my-2 my-sm-1 " type="submit">
@@ -77,13 +80,11 @@ class DashBoard extends Component {
                     </button> */}
                     <Row className="navrow">
                         <Col className="navcol">
-
                             <img className="dash-logo" src={ logo } alt="YantAnant" />
-
                         </Col>
                         <Col className="navcol">
                             <div className="navhed"> NAME</div>
-                            {(usr.company)? usr.company.name:"---" }
+                            { (usr.company) ? usr.company.name : "---" }
                         </Col>
                         <Col className="navcol">
                             <div> CONTACT PERSON</div>
@@ -107,6 +108,7 @@ class DashBoard extends Component {
 
 
                 </nav>
+
                 <div style={ { paddingBottom: "200px !important" } } >
 
                     <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
@@ -133,7 +135,12 @@ class DashBoard extends Component {
                     </section>
 
                 </div>
-                           
+                <div class="fixed-box" >
+                    <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }>
+                        <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
+                    </h3>
+                </div>
+                <div class="ex-fixed-box"></div>
             </div>
 
 

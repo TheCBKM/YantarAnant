@@ -21,6 +21,9 @@ class AdminDash extends Component {
         }
 
     }
+    componentDidMount() {
+        document.title = 'Admin-YantarAnat';
+      }
     componentWillMount() {
 
         if (getStorage('aid')) {

@@ -75,7 +75,7 @@ class LeaseEquipment extends Component {
                                     <td>{ d.subcategory.name }</td>
                                     <td>{ d.tenure }</td>
                                     <td>{ d.location }</td>
-                                    <td><ExtraDetails
+                                    <td><ExtraDetails 
                                         eqn={ d.subcategory.name }
                                         cap={ d.capacity }
                                         tn={ d.tenure }

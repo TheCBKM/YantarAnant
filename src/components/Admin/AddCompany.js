@@ -51,7 +51,7 @@ class AddCompany extends Component {
     }
 
     submitBtn() {
-
+alert("adding company")
         this.setState({
             adebtn:false
         })
@@ -74,7 +74,7 @@ class AddCompany extends Component {
                  alert("Company Added")
                 window.location.reload(); 
                 //route("/adm")
-            })
+            }).catch(e=>alert(e+"try Again"))
         
     
     }

@@ -51,7 +51,7 @@ class SubCategory extends Component {
                 categorydata: res.data,
                 nodata: false
             })
-          // console.log(this.state.categorydata)
+          console.log(this.state.categorydata)
 
         })
     }
@@ -86,6 +86,7 @@ class SubCategory extends Component {
                                         <tr>
                                             <th> Name</th>
                                             <th> Radius</th>
+                                            <th>Count</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead> <tbody>

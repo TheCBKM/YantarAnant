@@ -51,7 +51,7 @@ class AddEquipment extends Component {
             userdata: [],
             subcatdataonclick: [],
             quantity: this.state.qun,
-            capacity: this.state.ca,
+            capacity: this.state.cap,
             unit: this.state.unit
         }
         console.log(sendData);
@@ -134,6 +134,7 @@ class AddEquipment extends Component {
                             <option value="Feet">Feet</option>
                             <option value="Tyres">Tyres</option>
                             <option value="Litre">Litre</option>
+                            <option value="KW">KW</option>
                         </select>
                     </Col>
                 </Row>

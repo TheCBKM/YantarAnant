@@ -24,6 +24,7 @@ class Home extends Component {
         return (
             <div>
                  <AppNavbar/>
+                 
                 <div className="home-page-sec1"  >
                     <Row className="home-row " >
                         <Col className="home-col" >

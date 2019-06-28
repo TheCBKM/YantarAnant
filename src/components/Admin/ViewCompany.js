@@ -4,6 +4,7 @@ import { link, route, getStorage } from '../urls';
 import Button from 'react-bootstrap/Button';
 import Spinners from '../Spinners';
 import AddCompany from './AddCompany';
+import FilterCompany from './FilterCompany';
 
 class ViewCompany extends Component {
     constructor(props, context) {
@@ -14,7 +15,8 @@ class ViewCompany extends Component {
 
         this.state = {
             comapnydata: [],
-            view:false
+            view: false,
+            search: false
         };
     }
 
@@ -25,7 +27,7 @@ class ViewCompany extends Component {
             this.state.data = obj;
         }
         else {
-         
+
             route("/admlogin")
         }
 
@@ -35,17 +37,17 @@ class ViewCompany extends Component {
 
 
     delet(id) {
-       
-        this.setState({nodata:true});
+        alert("delete")
+        this.setState({ nodata: true });
         const sendData = { data: { _id: id } }
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.delete(`${link}/company/delete`, sendData).then((res) => {
             console.log(res);
-            // alert("Equipment Deleted")
+            alert("Company Deleted")
             window.location.reload()
             //route("/adm")
-        })
-        
+        }).catch(e=>alert(e+"Try Again"))
+
     }
     componentDidMount() {
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
@@ -66,6 +68,12 @@ class ViewCompany extends Component {
     handleClose = () => {
         this.setState({ view: false });
     }
+    handleShowfilter = () => {
+        this.setState({ view: false, search: true });
+    }
+    handleShowfilterN = () => {
+        this.setState({ view: false, search: false });
+    }
     render() {
 
         const details = this.state.comapnydata
@@ -85,46 +93,64 @@ class ViewCompany extends Component {
                         <Button variant="primary" onClick={ this.handleClose }>
                             View Company
                          </Button>
-                        <div style={ { paddingLeft: "20%", paddingRight: "20%" } }><AddCompany/> </div>
+                        <div style={ { paddingLeft: "20%", paddingRight: "20%" } }><AddCompany /> </div>
                     </div>
                     : <div>
                         <Button variant="primary" onClick={ this.handleShow }>
                             + Add Company
                          </Button>
-                        { (details.length == 0) ? <h3>No data yet</h3> :
-                            <table class=" dash-table">
-                                <thead>
-                                    <tr>
-                                        <th> Name</th>
-                                        <th>city</th>
-                                        <th>Address</th>
-                                        <th>Number</th>
-                                        <th>Contact Person</th>
-                                        <th>Last Login</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead> <tbody>
-                                    { details.map(d =>
+                       
+                        { this.state.search ? <div> <Button variant="primary" onClick={ this.handleShowfilterN }>
+                            All Compinies
+                         </Button>
+                         <FilterCompany />
+                         </div>
+                            :
+                            <div>
+                                 <Button variant="primary" onClick={ this.handleShowfilter }>
+                            Filter Compinies
+                         </Button>
+                             {(details.length == 0) ? <h3>No data yet</h3> :
+                                <table class=" dash-table">
+                                    <thead>
                                         <tr>
-                                            <td>{ d.name }</td>
-                                            <td>{ d.city }</td>
-                                            <td>{ d.address }</td>
-                                            <td type="number">{ `${d.contactNumber}` }</td>
-                                            <td>{ d.contactPerson }</td>
-                                            <td>{new Date( d.lastLogin).toString().split(' ').slice(0, 4).join(' ') || "NO DATA"} </td>
-                                            <td>{ d.status }</td>
+                                            <th> Name</th>
+                                            <th>city</th>
+                                            <th>Address</th>
+                                            <th>Number</th>
+                                            <th>Contact Person</th>
+                                            <th>Last Login</th>
+                                            <th> Login Count</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead> <tbody>
+                                        { details.map(d =>
+                                            <tr>
+                                                <td>{ d.name }</td>
+                                                <td>{ d.city }</td>
+                                                <td>{ d.address }</td>
+                                                <td type="number">{ `${d.contactNumber}` }</td>
+                                                <td>{ d.contactPerson }</td>
+                                                <td>{ new Date(d.lastLogin).toString().split(' ').slice(0, 4).join(' ') || "NO DATA" } </td>
+                                                <td>{ d.loginCount }</td>
+                                                <td>{ d.status }</td>
+    
+                                                <td><div style={ { color: "red" } } onClick={ () => this.delet((d._id)) }>
+                                                    <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                                                </div></td>
+                                            </tr>)
+                                        }
+    
+                                    </tbody></table>
+                             }
+                                    </div>
+                            }
+                            
 
-                                            <td><div style={ { color: "red" } } onClick={ () => this.delet((d._id)) }>
-                                                <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                                            </div></td>
-                                        </tr>)
-                                    }
-
-                                </tbody></table>
-                        }
-                    </div> }
-
+                        
+                </div> }
+                <div className="ffff"></div>
 
             </div>);
     }

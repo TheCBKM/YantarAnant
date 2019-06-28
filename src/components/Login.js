@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import axios from 'axios';
-import { link, route, setStorage ,isNumber} from './urls';
+import { link, route, setStorage, isNumber } from './urls';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +13,7 @@ class Login extends Component {
     }
     handleUserInput(e) {
         const name = e.target.name;
-        const value = e.target.value; 
+        const value = e.target.value;
         this.setState({ [name]: value });
     }
     componentDidMount() {
@@ -22,24 +22,24 @@ class Login extends Component {
     }
 
     submitBtn() {
-        if(this.state.email.length===10)
-        axios.post(`${link}/company/login`, {
-            contactNumber: this.state.email,
-            password: this.state.password
-        }).then(function (res) {
-            console.log(res.data.w_auth);
-            if (res.data.loginSuccess) {
-                axios.defaults.headers.common['w_auth'] = res.data.w_auth;
-                console.log(res.data)
-                setStorage("uid", res.data);
-                route("/dash")
-            }
-            else alert("Enter correct details")
-        })
-            .catch(function () {
-
+        if (this.state.email.length === 10)
+            axios.post(`${link}/company/login`, {
+                contactNumber: this.state.email,
+                password: this.state.password
+            }).then(function (res) {
+                console.log(res.data.w_auth);
+                if (res.data.loginSuccess) {
+                    axios.defaults.headers.common['w_auth'] = res.data.w_auth;
+                    console.log(res.data)
+                    setStorage("uid", res.data);
+                    route("/dash")
+                }
+                else alert("Enter correct details")
             })
-            else alert("Enter 10 digit number")
+                .catch(function () {
+
+                })
+        else alert("Enter 10 digit number")
 
 
     }
@@ -73,8 +73,10 @@ class Login extends Component {
                         </CardSubtitle>
                     </CardBody>
                 </Card>
+                <div class="fixed-box"><h3>Space for Advertisements <br />
+                    विज्ञापन के लिए स्थान</h3></div>
+                <div class="ex-fixed-box"></div>
             </div >
-
 
         );
     }
