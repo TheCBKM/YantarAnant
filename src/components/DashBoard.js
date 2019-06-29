@@ -83,7 +83,7 @@ class DashBoard extends Component {
                             <img className="dash-logo" src={ logo } alt="YantAnant" />
                         </Col>
                         <Col className="navcol">
-                            <div className="navhed"> NAME</div>
+                            <div className="navhed">COMPANY NAME</div>
                             { (usr.company) ? usr.company.name : "---" }
                         </Col>
                         <Col className="navcol">

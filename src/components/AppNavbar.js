@@ -11,15 +11,17 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,                                                                                                                                                                                                    
+    Col
 } from 'reactstrap';
+import Row from 'reactstrap/lib/Row';
 
 class AppNavbar extends React.Component {
     constructor(props) {
         super(props);
 
         this.toggle = this.toggle.bind(this);
-        this.state = {
+        this.state = {                                                                                                                                                                                                                      
             isOpen: false
         };
     }
@@ -31,17 +33,20 @@ class AppNavbar extends React.Component {
     render() {
         return (
             <div>
-                <Navbar className="navbarcss" light expand="md">
-                    <NavbarBrand href="/"><img alt="logo" style={ { height: '150px', width: '200px' } } src={ logo }></img></NavbarBrand>
+                <Row >
+                    <Col   md="2"    style={{align:"center"}}   >
+                    <img alt="logo" style={ { height: '200px', width: '200px' } } src={ logo }></img>
+                    </Col>
+                    <Col md="10">                                                                                                                                              
+                    <Navbar className="navbarcss" light expand="md">
+                    {/* <NavbarBrand href="/"></NavbarBrand> */}
                     <NavbarToggler onClick={ this.toggle } />
                     <Collapse isOpen={ this.state.isOpen } navbar>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
+                            <NavItem className='nav-item'>
                                 <NavLink href="/">Home</NavLink>
                             </NavItem>
-                            {/* <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Services</NavLink>
-              </NavItem> */}
+                            
                             <NavItem className='nav-item'>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>
@@ -63,30 +68,33 @@ class AppNavbar extends React.Component {
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                             </NavItem>
-                            <NavItem>
+                            <NavItem className='nav-item'>
                                 <NavLink href="/aboutus">About Us</NavLink>
                             </NavItem>
 
-                            <NavItem>
+                            <NavItem className='nav-item'>
                                 <NavLink href="/career">Career</NavLink>
                             </NavItem>
 
 
-                            <NavItem>
+                            <NavItem className='nav-item'>
                                 <NavLink href="/contact">Contact</NavLink>
                             </NavItem>
                            
-                            <NavItem>
+                            {/* <NavItem>
                             <div id="google_translate_element"></div>
-                            </NavItem>
+                            </NavItem> */}
 
-                            <NavItem>
+                            <NavItem className='nav-item'>
                                 <NavLink href="/YantarAnant/#/login">Login/Signup</NavLink>
                             </NavItem>
 
                         </Nav>
                     </Collapse>
                 </Navbar>
+                    </Col>
+                </Row>
+                
             </div>
         );
     }

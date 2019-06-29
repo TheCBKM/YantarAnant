@@ -73,8 +73,11 @@ class Login extends Component {
                         </CardSubtitle>
                     </CardBody>
                 </Card>
-                <div class="fixed-box"><h3>Space for Advertisements <br />
-                    विज्ञापन के लिए स्थान</h3></div>
+                <div class="fixed-box" >
+                    <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }>
+                        <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
+                    </h3>
+                </div>
                 <div class="ex-fixed-box"></div>
             </div >
 

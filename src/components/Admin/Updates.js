@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { link, route, getStorage, isNumber } from '../urls';
-import axios from 'axios';
 import { Row, Col, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import NumberCount from '../NumberCount'
 
@@ -50,7 +49,7 @@ class Updates extends Component {
             this.setState({
                 compcount: this.state.data.companyCount,
                 eqpcount: this.state.data.equipmentCount,
-                reqcount: this.state.data.equipmentCount,
+                reqcount: this.state.data.requirementCount,
                 fedcount: this.state.data.feedbackCount,
                 f1:f1t,
             f2:f2t,
@@ -77,7 +76,7 @@ class Updates extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="updates">
                 <Row className="" >
                     <Col className="home-col" >
                         <Card >

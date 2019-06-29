@@ -101,7 +101,7 @@ class AdminDash extends Component {
 
 
                 </Tabs>
-                <section>
+                <section className="admin-sec">
                     { this.toggelCategories() }
                     { console.log(this.state.activeTab) }
                 </section>

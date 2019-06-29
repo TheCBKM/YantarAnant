@@ -6,6 +6,8 @@ import Spinners from '../Spinners';
 import AddCompany from './AddCompany';
 import FilterCompany from './FilterCompany';
 
+
+
 class ViewCompany extends Component {
     constructor(props, context) {
         super(props, context);
@@ -16,7 +18,8 @@ class ViewCompany extends Component {
         this.state = {
             comapnydata: [],
             view: false,
-            search: false
+            search: false,
+            nodata: true
         };
     }
 

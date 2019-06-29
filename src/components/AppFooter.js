@@ -46,7 +46,7 @@ class AppFooter extends Component {
                             </Col>
                         </Row>
                         <Row >
-                            <Col style={ { textAlign: "center", color: "white" } } ><a style={ { all: "unset" } } target="_blank" href="https://www.facebook.com/Yantranant-2116052621808787/"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a></Col>
+                            <Col style={ { textAlign: "center", color: "white" } } ><a style={ { all: "unset" } } target="_blank" href="https://www.facebook.com/Yantranant-432252873989494/?ref=br_rs"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a></Col>
                             <Col style={ { textAlign: "center", color: "white" } }><a style={ { all: "unset" } } target="_blank" href="https://twitter.com/yantranant"><i href="" class="fa fa-twitter fa-3x" aria-hidden="true"></i></a></Col>
                             <Col style={ { textAlign: "center", color: "white" } }><a style={ { all: "unset" } } target="_blank" href="https://www.youtube.com/channel/UCDbKoIzPtwNxMk1rB4d6EuQ?guided_help_flow=3"><i href="" class="fa fa-youtube fa-3x" aria-hidden="true"></i></a></Col>
                         </Row>

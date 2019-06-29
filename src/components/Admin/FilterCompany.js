@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { link, route, getStorage } from '../urls';
-import Button from 'react-bootstrap/Button';
 import Spinners from '../Spinners';
-import AddCompany from './AddCompany';
-import Label from 'reactstrap/lib/Label';
-import { stringLiteral } from '@babel/types';
+
 class FilterCompany extends Component {
     constructor(props) {
         super(props);
@@ -17,10 +14,25 @@ class FilterCompany extends Component {
             filter: '',
             viewSearch: false,
             date: '',
-            sdate: ''
+            sdate: '',
+            nodata: true
         }
         this.search = this.search.bind(this);
 
+
+    }
+
+    delet(id) {
+        alert("delete")
+        this.setState({ nodata: true });
+        const sendData = { data: { _id: id } }
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.delete(`${link}/company/delete`, sendData).then((res) => {
+            console.log(res);
+            alert("Company Deleted")
+            window.location.reload()
+            //route("/adm")
+        }).catch(e=>alert(e+"Try Again"))
 
     }
     search() {
@@ -111,7 +123,11 @@ class FilterCompany extends Component {
         return (
 
             <div>
-
+            { this.state.nodata ?
+                <div>Loading<br />
+                    <Spinners />
+                </div>
+                : <></> }
                 <label>Filter </label> <br />
                 <select name="filter" onChange={ (event) => this.handleUserInput(event) }>
 

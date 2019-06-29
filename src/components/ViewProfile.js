@@ -39,13 +39,11 @@ class ViewProfile extends Component {
         }
     }
     updatedata = () => {
-
         const sendData = {
-
             _id: this.state.data.companyId,
             email: this.state.email,
             name: this.state.name,
-            contactPerson: this.state.cn,
+            contactNumber: this.state.cn,
             address: this.state.add
         }
         console.log(sendData)
@@ -104,7 +102,7 @@ class ViewProfile extends Component {
                     </Col>
                     <Col>
                         <lable>Contact Numberlable</lable><br />
-                        <input name="cn" value={ this.state.cn } onChange={ (event) => this.handleUserInput(event) } placeholder={ data.contactNumber } disabled={ (this.state.cnd) ? "disabled" : "" } />                </Col>
+                        <input name="cn" value={ this.state.cn } onChange={ (event) => this.handleUserInput(event) } placeholder={ data.contactNumber } disabled= "disabled"  />                </Col>
 
                 </Row>
                 <Row>

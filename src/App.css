@@ -5,9 +5,10 @@
 }
 .nav-item > *{
   font-size: calc(15px + 1vw) !important;
-  font-family:s
-  
- ;
+}
+.nav-item {
+  font-size: calc(15px + 1vw) !important;
+    /* box-shadow: 0px 2px 0px 1px  rgba(0,0,0,0.2); */
 }
 a {
   text-decoration: none;
@@ -301,4 +302,16 @@ margin-bottom: 200px !important;
   left: 0;
   right: 0;
   height: 50px;
+}
+
+
+.updates{
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("images/architecture-black-and-white-buildings-1437493.jpg");  background-repeat:no-repeat;
+  background-size:cover;
+  /* width: 100%; */
+}
+.admin-sec{
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("images/logo.png");  background-repeat:no-repeat;
+  background-size:contain;
+  width: 100%; 
 }

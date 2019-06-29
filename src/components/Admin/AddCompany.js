@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
 import { link, route ,getStorage} from '../urls';
-import Spinners from '../Spinners';
 import Spinner from 'react-bootstrap/Spinner'
 
 class AddCompany extends Component {
@@ -81,7 +80,11 @@ alert("adding company")
     render() {
         return (
             <div>
-      
+      <Row>
+            <button  id="adebtn" className="btn btn-primary" onClick={ this.submitBtn } >
+              SEND
+            </button>
+            </Row>
             <Row>
                 <Col>
                     <label>Company Name*</label>
@@ -116,18 +119,10 @@ alert("adding company")
                     <textarea name="add" onChange={ (event) => this.handleUserInput(event) } type="text"/>  
                 </Col>
             </Row>
+            
 
 
-
-            <button type="submit" id="adebtn" className="btn btn-primary" onClick={ this.submitBtn } >
-                { this.state.adebtn ? <div>Submit</div> : <div><Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                /> Loading</div> }
-            </button>
+            
 
 
 

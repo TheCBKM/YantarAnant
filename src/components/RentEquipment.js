@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import AddREquip from './AddREquip'
 import axios from 'axios';
-import { link, location,getStorage } from './urls';
+import { link,getStorage } from './urls';
 import Spinners from './Spinners';
 
 class RentEquipment extends Component {
@@ -10,11 +10,6 @@ class RentEquipment extends Component {
         userdata: [],
         nodata: true
     }
-
-
-
-
-
     componentWillMount() {
 
         if (getStorage('uid')) {
@@ -24,9 +19,6 @@ class RentEquipment extends Component {
         else {
             window.location.pathname=`/login`
         }
-
-
-
     }
 
     componentDidMount(thi) {

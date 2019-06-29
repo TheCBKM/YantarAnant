@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { link, route, getStorage } from '../urls';
 import Button from 'react-bootstrap/Button';
-import Spinners from '../Spinners';
 import AddCategory from './AddCategory';
+import Spinners from '../Spinners';
 
 class Category extends Component {
     constructor(props, context) {
@@ -14,7 +14,8 @@ class Category extends Component {
 
         this.state = {
             categorydata: [],
-            view: false
+            view: false,
+            nodata: true
         };
     }
     componentWillMount() {
@@ -67,6 +68,11 @@ class Category extends Component {
 
         return (
             <div style={{paddingTop:"2%"}}>
+                 { this.state.nodata ?
+                    <div>Loading<br />
+                        <Spinners />
+                    </div>
+                    : <></> }
                 { this.state.view ?
                     <div >
 

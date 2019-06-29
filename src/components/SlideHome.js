@@ -13,7 +13,7 @@ class SlideHome extends Component {
                                     <img src={s1} alt="s1" style={{maxHeight:"100px"}}/>
                                     
                                     <CardSubtitle style={ { fontSize: 'calc(1em + 1vw)' } }>
-                                        Senseor Paver
+                                    Sensor Paver 
                                     </CardSubtitle>
                                 </CardBody>
                             </Card>

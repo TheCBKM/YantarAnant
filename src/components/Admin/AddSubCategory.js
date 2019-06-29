@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
 import { link, route ,getStorage} from '../urls';
-import Spinners from '../Spinners';
 import Spinner from 'react-bootstrap/Spinner'
 import EditSubCategory from './EditSubCategory'
  

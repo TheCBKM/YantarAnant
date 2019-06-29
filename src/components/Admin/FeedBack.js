@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { link, route, getStorage } from '../urls';
-import Button from 'react-bootstrap/Button';
 import Spinners from '../Spinners';
-import AddCategory from './AddCategory';
 
 class FeedBack extends Component {
     constructor(props, context) {
         super(props, context);
-
-
-
         this.state = {
             feeddata: [],
-            view: false
+            view: false,
+            nodata: true
         };
     }
     componentWillMount() {
@@ -56,7 +52,12 @@ class FeedBack extends Component {
 
         return (
             <div style={{paddingTop:"2%"}}>
-                
+                   { this.state.nodata ?
+                    <div>Loading<br />
+                        <Spinners />
+                    </div>
+                    : <></> }
+
                         { (details.length == 0) ? <h3>No data yet</h3> :
                                 <table class=" dash-table">
                                     <thead>
