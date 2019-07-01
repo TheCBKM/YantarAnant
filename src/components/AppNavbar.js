@@ -34,15 +34,17 @@ class AppNavbar extends React.Component {
         return (
             <div>
                 <Row >
-                    <Col   md="2"    style={{align:"center"}}   >
-                    <img alt="logo" style={ { height: '200px', width: '200px' } } src={ logo }></img>
+                    <Col   md="0"    style={{align:"center"}}   >
                     </Col>
-                    <Col md="10">                                                                                                                                              
+                    <Col md="12">                                                                                                                                              
                     <Navbar className="navbarcss" light expand="md">
-                    {/* <NavbarBrand href="/"></NavbarBrand> */}
+                    <NavbarBrand href="/">
+                    <img alt="logo" style={ { height: '200px', width: '200px' } } src={ logo }></img>
+
+                    </NavbarBrand>
                     <NavbarToggler onClick={ this.toggle } />
                     <Collapse isOpen={ this.state.isOpen } navbar>
-                        <Nav className="ml-auto" navbar>
+                        <Nav className="" navbar >
                             <NavItem className='nav-item'>
                                 <NavLink href="/">Home</NavLink>
                             </NavItem>

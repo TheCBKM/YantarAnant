@@ -2,13 +2,15 @@
   background: #F7971E;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  align-content: center !important;
 }
 .nav-item > *{
   font-size: calc(15px + 1vw) !important;
 }
 .nav-item {
   font-size: calc(15px + 1vw) !important;
-    /* box-shadow: 0px 2px 0px 1px  rgba(0,0,0,0.2); */
+    /* box-shadow: 0px   2px 0px 1px  rgba(0,0,0,0.2); */
+    padding-right: 2%;
 }
 a {
   text-decoration: none;

@@ -101,7 +101,7 @@ class Requirments extends Component {
                                         .join(" ") }</td>
                                     <td>{ d.company.name }</td>
                                     <td>{ d.company.contactPerson }</td>
-                                    <td>{ d.company.city }</td>
+                                    <td>{ d.location }</td>
                                     <td>{ d.company.contactNumber }</td>
 
                                     <td><div style={ { color: "red" } } onClick={ () => this.delet((d._id)) }>

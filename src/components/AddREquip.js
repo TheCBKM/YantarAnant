@@ -36,8 +36,6 @@ class AddREquip extends Component {
 
     submitBtn() {
         if (this.state.pin.length == 6 && this.state.tenure.length != 0  && this.state.location !== "") {
-
-
             // window.location=`${location}/dash`
             this.setState({
                 adebtn: false
