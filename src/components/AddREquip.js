@@ -35,7 +35,7 @@ class AddREquip extends Component {
     }
 
     submitBtn() {
-        if (this.state.pin.length == 6 && this.state.tenure.length != 0 && this.state.cap.length != 0 && this.state.location !== "") {
+        if (this.state.pin.length == 6 && this.state.tenure.length != 0  && this.state.location !== "") {
 
 
             // window.location=`${location}/dash`
@@ -148,7 +148,7 @@ class AddREquip extends Component {
                         <input name="pin" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
                     </Col>
                     <Col>
-                        <label>Tenure</label><br />
+                        <label>Tenure (days)</label><br />
                         <input name="tenure" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
                     </Col>
                 </Row>
