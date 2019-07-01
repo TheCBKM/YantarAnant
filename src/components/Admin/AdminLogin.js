@@ -67,7 +67,7 @@ class AdminLogin extends Component {
                                 </div>
                                 <div>
                                     <button id="focus" type="submit" className="btn btn-primary" onClick={ this.submitBtn } >
-                                        Sign up
+                                        Sin up
                                     </button>
                                 </div>
                             </div>

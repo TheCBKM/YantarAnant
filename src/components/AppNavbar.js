@@ -55,7 +55,7 @@ class AppNavbar extends React.Component {
                                     <DropdownMenu right>
                                         <DropdownItem>
                                        < NavItem>
-                                <NavLink href="/YantarAnant/#/rentalservices">Rental</NavLink>
+                                <NavLink href="/rentalservices">Rental</NavLink>
                             </NavItem>
                   </DropdownItem>
                                         <DropdownItem>
@@ -69,16 +69,16 @@ class AppNavbar extends React.Component {
                                 </UncontrolledDropdown>
                             </NavItem>
                             <NavItem className='nav-item'>
-                                <NavLink href="/aboutus">About Us</NavLink>
+                                <NavLink href="/">About Us</NavLink>
                             </NavItem>
 
                             <NavItem className='nav-item'>
-                                <NavLink href="/career">Career</NavLink>
+                                <NavLink href="/">Career</NavLink>
                             </NavItem>
 
 
                             <NavItem className='nav-item'>
-                                <NavLink href="/contact">Contact</NavLink>
+                                <NavLink href="/">Contact</NavLink>
                             </NavItem>
                            
                             {/* <NavItem>
@@ -86,7 +86,7 @@ class AppNavbar extends React.Component {
                             </NavItem> */}
 
                             <NavItem className='nav-item'>
-                                <NavLink href="/YantarAnant/#/login">Login/Signup</NavLink>
+                                <NavLink href="/login">Login/Signup</NavLink>
                             </NavItem>
 
                         </Nav>

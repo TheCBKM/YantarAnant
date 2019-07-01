@@ -12,4 +12,4 @@ export const removeStorage=(item)=>(localStorage.removeItem(item))
 // export const removeStorage=(item)=>(localStorage.removeItem(item))
 
 //export const route=(loc)=>(window.location.assign(`https://${window.location.hostname}${window.location.pathname}#${loc}`))
-export const route=(loc)=>(window.location=`http://${window.location.hostname}:3000/#${loc}`)
+export const route=(loc)=>(window.location=`http://${window.location.hostname}:3000${loc}`)

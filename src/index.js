@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
-    <HashRouter> <App /> </HashRouter>
+    <BrowserRouter> <App /> </BrowserRouter>
     ,
     document.getElementById('root'));
 
