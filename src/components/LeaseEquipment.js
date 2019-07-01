@@ -26,6 +26,7 @@ class LeaseEquipment extends Component {
         if (getStorage('uid')) {
             const obj = getStorage('uid')
             this.state.data = obj;
+            console.log(obj)
         }
         else {
             

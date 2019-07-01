@@ -17,6 +17,9 @@ class FilterCompany extends Component {
             sdate: '',
             nodata: true
         }
+        this.delet = this.delet.bind(this);
+        this.deactivate = this.deactivate.bind(this);
+        this.activate = this.activate.bind(this);
         this.search = this.search.bind(this);
 
 
@@ -32,9 +35,36 @@ class FilterCompany extends Component {
             alert("Company Deleted")
             window.location.reload()
             //route("/adm")
-        }).catch(e=>alert(e+"Try Again"))
+        }).catch(e => alert(e + "Try Again"))
 
     }
+    deactivate(id) {
+        alert("deactivate")
+        this.setState({ nodata: true });
+        const sendData = { data: { _id: id, companyStatus: 0    } }
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.post(`${link}/company/update`, sendData).then((res) => {
+            console.log(res);
+            alert("Company deactivate")
+            window.location.reload()
+            //route("/adm")
+        }).catch(e => alert(e + "Try Again"))
+
+    }
+    activate(id) {
+        alert("activate")
+        this.setState({ nodata: true });
+        const sendData = { data: { _id: id, companyStatus: 1 } }
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.post(`${link}/company/update`, sendData).then((res) => {
+            console.log(res);
+            alert("Company activate")
+            window.location.reload()
+            //route("/adm")
+        }).catch(e => alert(e + "Try Again"))
+
+    }
+
     search() {
 
         const details = this.state.comapnydata
@@ -54,17 +84,17 @@ class FilterCompany extends Component {
                 })
 
             })
-            if (this.state.filter === "name")
+        if (this.state.filter === "name")
             this.setState({
                 filterdata: details.filter(function (number) {
-                    return number.contactNumber.toLowerCase( ) == value     .toLowerCase();
+                    return number.contactNumber.toLowerCase() == value.toLowerCase();
                 })
 
             })
         if (this.state.filter === "date") {
             const sdate = this.state.sdate
             const date = details.filter(function (number) {
-                const d1 = new Date(value)||Date.now()
+                const d1 = new Date(value) || Date.now()
                 const d2 = new Date(number.lastLogin ? number.lastLogin.substring(0, 10) : "0-0-0")
                 const d3 = new Date(sdate)
                 console.log(d1)
@@ -123,22 +153,22 @@ class FilterCompany extends Component {
         return (
 
             <div>
-            { this.state.nodata ?
-                <div>Loading<br />
-                    <Spinners />
-                </div>
-                : <></> }
+                { this.state.nodata ?
+                    <div>Loading<br />
+                        <Spinners />
+                    </div>
+                    : <></> }
                 <label>Filter </label> <br />
                 <select name="filter" onChange={ (event) => this.handleUserInput(event) }>
 
                     <option value={ -1 } >Choose........</option>
                     <option value="city">City</option>
                     <option value="number">Number</option>
-                 
+
                     <option value="date" >Date</option>
                 </select>
                 <input name="phone" type={ this.state.filter === "number" ? "number" : this.state.filter === "city" ? "text" : this.state.filter === "date" ? "date" : "text" } onChange={ (event) => this.handleUserInput(event) } />
-                {this.state.filter==="date"?<input name="sdate" type="date" onChange={ (event) => this.handleUserInput(event) } />:""}
+                { this.state.filter === "date" ? <input name="sdate" type="date" onChange={ (event) => this.handleUserInput(event) } /> : "" }
 
 
                 <button onClick={ this.search }>Search</button>
@@ -168,11 +198,18 @@ class FilterCompany extends Component {
                                         <td>{ d.contactPerson }</td>
                                         <td>{ new Date(d.lastLogin).toString().split(' ').slice(0, 4).join(' ') || "NO DATA" } </td>
                                         <td>{ d.loginCount }</td>
-                                        <td>{ d.status }</td>
+                                        <td>{ d.companyStatus }</td>
 
                                         <td><div style={ { color: "red" } } onClick={ () => this.delet((d._id)) }>
                                             <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                                        </div></td>
+                                        </div>
+                                            { d.companyStatus === 0 ?
+                                                <button onClick={ () => this.deactivate((d._id)) } type="button" data-toggle="tooltip" title="Deactivate" class="btn btn-danger custom-btn"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                                                :
+                                                <button onClick={ () => this.activate((d._id)) } type="button" data-toggle="tooltip" title="Activate" class="btn btn-success custom-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                            }
+
+                                        </td>
                                     </tr>)
                             }
 

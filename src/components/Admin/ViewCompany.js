@@ -14,6 +14,8 @@ class ViewCompany extends Component {
 
 
         this.delet = this.delet.bind(this);
+        this.deactivate = this.deactivate.bind(this);
+        this.activate = this.activate.bind(this);
 
         this.state = {
             comapnydata: [],
@@ -47,6 +49,36 @@ class ViewCompany extends Component {
         axios.delete(`${link}/company/delete`, sendData).then((res) => {
             console.log(res);
             alert("Company Deleted")
+            window.location.reload()
+            //route("/adm")
+        }).catch(e=>alert(e+"Try Again"))
+
+    }
+
+
+    deactivate(id) {
+        alert("deactivate")
+        this.setState({ nodata: true });
+        const sendData = { data: { _id: id ,companyStatus:0} }
+        console.log(sendData)
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.post(`${link}/company/update`, sendData).then((res) => {
+            console.log(res);
+            alert("Company deactivate")
+            window.location.reload()
+            //route("/adm")
+        }).catch(e=>alert(e+"Try Again"))
+        
+    }
+    activate(id) {
+        alert("activate")
+        this.setState({ nodata: true });
+        const sendData = { data: { _id: id ,companyStatus:1} }
+        console.log(sendData)
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.post(`${link}/company/update`, sendData).then((res) => {
+            console.log(res);
+            alert("Company activate")
             window.location.reload()
             //route("/adm")
         }).catch(e=>alert(e+"Try Again"))
@@ -137,11 +169,19 @@ class ViewCompany extends Component {
                                                 <td>{ d.contactPerson }</td>
                                                 <td>{ new Date(d.lastLogin).toString().split(' ').slice(0, 4).join(' ') || "NO DATA" } </td>
                                                 <td>{ d.loginCount }</td>
-                                                <td>{ d.status }</td>
+                                                <td>{ d.companyStatus }</td>
     
                                                 <td><div style={ { color: "red" } } onClick={ () => this.delet((d._id)) }>
                                                     <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                                                </div></td>
+                                                </div>
+                                                {d.companyStatus===1?
+                                                <button onClick={ () => this.deactivate((d._id)) } type="button" data-toggle="tooltip" title="Deactivate" class="btn btn-danger custom-btn"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                                                :
+                                                <button   onClick={ () => this.activate((d._id)) } type="button" data-toggle="tooltip" title="Activate" class="btn btn-success custom-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                }
+                                                
+                                                </td>
+                                                
                                             </tr>)
                                         }
     

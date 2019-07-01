@@ -73,7 +73,7 @@ class FeedBack extends Component {
                                         { details.map(d =>
                                             <tr>
                                                 <td>{  d.company ? d.company.name : "no data" }</td>
-                                                <td>{ d.company ? d.company.name : "no data"}</td>
+                                                <td>{ d.company ? d.company.contactNumber : "no data"}</td>
                                                 <td>{ d.comment }</td>
                                                 <td>{ new Date(d.createdAt).toString().split(' ').slice(0, 4).join(' ') || "NO DATA"} </td>
                                                

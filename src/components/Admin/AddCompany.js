@@ -63,7 +63,8 @@ alert("adding company")
             email: this.state.email,
             contactNumber: this.state.cn,
             contactPerson: this.state.cp,
-            insertedBy: this.state.isrby
+            insertedBy: this.state.isrby,
+            companyStatus:1
           }
         console.log(sendData);
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
