@@ -22,7 +22,8 @@ class AddREquip extends Component {
             eqnarr: [],
             tnure: "",
             nodata: true,
-            adebtn: true
+            adebtn: true,
+            tenure:""
         }
         this.submitBtn = this.submitBtn.bind(this);
     }
@@ -34,7 +35,7 @@ class AddREquip extends Component {
     }
 
     submitBtn() {
-        if (this.state.pin.length == 6 && this.state.tnure.length != 0 && this.state.cap.length != 0 && this.state.location !== "") {
+        if (this.state.pin.length == 6 && this.state.tenure.length != 0 && this.state.cap.length != 0 && this.state.location !== "") {
 
 
             // window.location=`${location}/dash`
@@ -51,9 +52,9 @@ class AddREquip extends Component {
                 pinCode: this.state.pin,
                 userdata: [],
                 subcatdataonclick: [],
-                capacity: this.state.ca,
-                unit: this.state.unit.name,
-                tenure: this.state.unit.tenure,
+                capacity: this.state.cap,
+                unit: this.state.unit,
+                tenure: this.state.tenure,
             }
 
 
@@ -148,7 +149,7 @@ class AddREquip extends Component {
                     </Col>
                     <Col>
                         <label>Tenure</label><br />
-                        <input name="tnure" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
+                        <input name="tenure" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
                     </Col>
                 </Row>
                 <Row>
