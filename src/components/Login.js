@@ -52,6 +52,7 @@ class Login extends Component {
                     route("/dash")
                 }
                 else {
+                    if(res.data.message)
                     this.setState({
                         modal:true,
                         modaltext:res.data.message
