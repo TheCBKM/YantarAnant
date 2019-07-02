@@ -62,7 +62,7 @@ class AddREquip extends Component {
             axios.post(`${link}/requirement/save`, sendData)
                 .then((res) => {
                     console.log(res);
-                     alert("Equipment Added")
+                     alert("Requirment Added")
                     window.location.reload()
                    // route("/dash")
                 })

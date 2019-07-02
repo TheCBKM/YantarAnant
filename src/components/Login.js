@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
+import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import axios from 'axios';
 import { link, route, setStorage, isNumber } from './urls';
 class Login extends Component {
@@ -7,9 +7,14 @@ class Login extends Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            modal:false,
+            modaltext:''
+
         }
         this.submitBtn = this.submitBtn.bind(this);
+        this.toggle = this.toggle.bind(this);
+
     }
     handleUserInput(e) {
         const name = e.target.name;
@@ -20,13 +25,18 @@ class Login extends Component {
         console.log("mounted");
         document.getElementById("focus").focus();
     }
+    toggle() {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }));
+    }
 
     submitBtn() {
         if (this.state.email.length === 10)
             axios.post(`${link}/company/login`, {
                 contactNumber: this.state.email,
                 password: this.state.password
-            }).then(function (res) {
+            }).then( (res) =>{
                 console.log(res.data.w_auth);
                 if (res.data.loginSuccess) {
                     axios.defaults.headers.common['w_auth'] = res.data.w_auth;
@@ -34,7 +44,12 @@ class Login extends Component {
                     setStorage("uid", res.data);
                     route("/dash")
                 }
-                else alert("Enter correct details")
+                else {
+                    this.setState({
+                        modal:true,
+                        modaltext:res.data.message
+                    })
+                }
             })
                 .catch(function () {
 
@@ -48,6 +63,7 @@ class Login extends Component {
 
 
             <div className="login">
+                 
                 <Card className="login-card">
                     <CardBody>
                         <CardTitle style={ { fontSize: 'calc(1em + 1vw)', paddingTop: '50%' } }>
@@ -79,6 +95,24 @@ class Login extends Component {
                     </h3>
                 </div>
                 <div class="ex-fixed-box"></div>
+
+
+               < Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
+                        <ModalHeader  toggle={ this.toggle }>
+                            <div>
+                                Details
+                            </div>
+                        </ModalHeader>
+                        <ModalBody>
+                           
+                            <h4>{ this.state.modaltext}<br/><strong>Call us at:- 0731-4984775</strong></h4>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="secondary" onClick={ this.toggle }>Close</Button>
+                        </ModalFooter>
+                    </Modal>
+        
+
             </div >
 
         );

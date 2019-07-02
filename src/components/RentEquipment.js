@@ -76,7 +76,7 @@ class RentEquipment extends Component {
                     </div>
                     : <div>
                         <Button variant="primary" onClick={ this.handleShow }>
-                            + Add Equipment
+                            + Add Requirement
                          </Button>
                         { (details.length == 0) ? <h3>No data yet</h3> :
                             <table class=" dash-table">

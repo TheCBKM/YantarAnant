@@ -24,7 +24,7 @@ class ViewCompany extends Component {
             nodata: true
         };
     }
-
+   
     componentWillMount() {
 
         if (getStorage('aid')) {
@@ -59,7 +59,7 @@ class ViewCompany extends Component {
     deactivate(id) {
         alert("deactivate")
         this.setState({ nodata: true });
-        const sendData = { data: { _id: id ,companyStatus:0} }
+        const sendData = { _id: id ,companyStatus:0} 
         console.log(sendData)
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.post(`${link}/company/update`, sendData).then((res) => {
@@ -73,7 +73,7 @@ class ViewCompany extends Component {
     activate(id) {
         alert("activate")
         this.setState({ nodata: true });
-        const sendData = { data: { _id: id ,companyStatus:1} }
+        const sendData =   { _id: id ,companyStatus:2} 
         console.log(sendData)
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.post(`${link}/company/update`, sendData).then((res) => {
@@ -169,16 +169,16 @@ class ViewCompany extends Component {
                                                 <td>{ d.contactPerson }</td>
                                                 <td>{ new Date(d.lastLogin).toString().split(' ').slice(0, 4).join(' ') || "NO DATA" } </td>
                                                 <td>{ d.loginCount }</td>
-                                                <td>{ d.companyStatus }</td>
-    
+                                                <td>{ d.companyStatus?"Active":"Deactive" }</td>
+                                                
                                                 <td><div style={ { color: "red" } } onClick={ () => this.delet((d._id)) }>
                                                     <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
                                                 </div>
-                                                {d.companyStatus===1?
+                                               {d.companyStatus?
                                                 <button onClick={ () => this.deactivate((d._id)) } type="button" data-toggle="tooltip" title="Deactivate" class="btn btn-danger custom-btn"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
                                                 :
                                                 <button   onClick={ () => this.activate((d._id)) } type="button" data-toggle="tooltip" title="Activate" class="btn btn-success custom-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
-                                                }
+                                               }
                                                 
                                                 </td>
                                                 
