@@ -10,6 +10,7 @@ import FeedBack from './FeedBack';
 import { logo } from '../Appimages'
 import ViewProfile from './ViewProfile';
 import SlideHome from './SlideHome';
+import {add1} from "../Appimages"
 
 
 class DashBoard extends Component {
@@ -136,9 +137,10 @@ class DashBoard extends Component {
 
                 </div>
                 <div class="fixed-box" >
-                    <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }>
+                    {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */}
+                       <img  style={{width:"250px", height:"250px"}}src={add1} alt="add1"/>
                         <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
-                    </h3>
+                    {/* </h3> */}
                 </div>
                 <div class="ex-fixed-box"></div>
             </div>

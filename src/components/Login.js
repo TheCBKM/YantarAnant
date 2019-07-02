@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner'
+import {add1} from '../Appimages'
 
 import { link, route, setStorage, isNumber } from './urls';
 class Login extends Component {
@@ -106,9 +107,10 @@ class Login extends Component {
                     </CardBody>
                 </Card>
                 <div class="fixed-box" >
-                    <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }>
+                    {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */}
+                       <img  style={{height:"100%"}}src={add1} alt="add1"/>
                         <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
-                    </h3>
+                    {/* </h3> */}
                 </div>
                 <div class="ex-fixed-box"></div>
 

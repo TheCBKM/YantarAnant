@@ -10,6 +10,7 @@ import DashBoard from './DashBoard';
 import AdminDash from './Admin/AdminDash';
 import AdminLogin from './Admin/AdminLogin';
 import FilterCompany from './Admin/FilterCompany';
+import ResetPassword from './ResetPassword';
 
 const AppRouter = ()=>(
     <Switch>
@@ -23,6 +24,7 @@ const AppRouter = ()=>(
         <Route exact path="/adm" component={AdminDash}></Route>
         <Route exact path="/admlogin" component={AdminLogin}></Route>
         <Route exact path="/filter" component={FilterCompany}></Route>
+        <Route exact path="/reset" component={ResetPassword}></Route>
 
     </Switch>
 ) 
