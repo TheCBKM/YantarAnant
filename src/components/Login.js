@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner'
+
 import { link, route, setStorage, isNumber } from './urls';
 class Login extends Component {
     constructor(props) {
@@ -9,7 +11,8 @@ class Login extends Component {
             email: '',
             password: '',
             modal:false,
-            modaltext:''
+            modaltext:'',
+            adebtn:true
 
         }
         this.submitBtn = this.submitBtn.bind(this);
@@ -32,7 +35,11 @@ class Login extends Component {
     }
 
     submitBtn() {
-        if (this.state.email.length === 10)
+        if (this.state.email.length === 10){
+            this.setState({
+                adebtn:false
+            })
+        
             axios.post(`${link}/company/login`, {
                 contactNumber: this.state.email,
                 password: this.state.password
@@ -54,6 +61,7 @@ class Login extends Component {
                 .catch(function () {
 
                 })
+            }
         else alert("Enter 10 digit number")
 
 
@@ -82,7 +90,14 @@ class Login extends Component {
                                 </div>
                                 <div>
                                     <button id="focus" type="submit" className="btn btn-primary" onClick={ this.submitBtn } >
-                                        Sign up
+                                        
+                                    { this.state.adebtn ? <div>Sign up</div> : <div><Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                    /> Loading</div> }
                                     </button>
                                 </div>
                             </div>
@@ -105,7 +120,7 @@ class Login extends Component {
                         </ModalHeader>
                         <ModalBody>
                            
-                            <h4>{ this.state.modaltext}<br/><strong>Call us at:- 0731-4984775</strong></h4>
+                            <h4>{ this.state.modaltext}<br/><strong>Call us at:- 7067117305</strong></h4>
                         </ModalBody>
                         <ModalFooter>
                             <Button color="secondary" onClick={ this.toggle }>Close</Button>
