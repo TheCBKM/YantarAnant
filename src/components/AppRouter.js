@@ -11,6 +11,10 @@ import AdminDash from './Admin/AdminDash';
 import AdminLogin from './Admin/AdminLogin';
 import FilterCompany from './Admin/FilterCompany';
 import ResetPassword from './ResetPassword';
+import AddProduct from './BuySell/AddProduct';
+import ViewAllProduct from './BuySell/ViewAllProduct';
+import BuySell from './Admin/BuySell';
+import ViewProducts from './BuySell/ViewProducts';
 
 const AppRouter = ()=>(
     <Switch>
@@ -25,6 +29,12 @@ const AppRouter = ()=>(
         <Route exact path="/admlogin" component={AdminLogin}></Route>
         <Route exact path="/filter" component={FilterCompany}></Route>
         <Route exact path="/reset" component={ResetPassword}></Route>
+        <Route exact path="/addproduct" component={AddProduct}></Route>
+        <Route exact path="/viewallproduct" component={ViewAllProduct}></Route>
+        <Route exact path="/admbuysell" component={BuySell}></Route>
+        <Route exact path="/myproducts" component={ViewProducts}></Route>
+
+
 
     </Switch>
 ) 

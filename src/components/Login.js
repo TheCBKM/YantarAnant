@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner'
-import {add1} from '../Appimages'
+import { add1 } from '../Appimages'
 
 import { link, route, setStorage, isNumber } from './urls';
 class Login extends Component {
@@ -11,9 +11,9 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            modal:false,
-            modaltext:'',
-            adebtn:true
+            modal: false,
+            modaltext: '',
+            adebtn: true
 
         }
         this.submitBtn = this.submitBtn.bind(this);
@@ -36,15 +36,15 @@ class Login extends Component {
     }
 
     submitBtn() {
-        if (this.state.email.length === 10){
+        if (this.state.email.length === 10) {
             this.setState({
-                adebtn:false
+                adebtn: false
             })
-        
+
             axios.post(`${link}/company/login`, {
                 contactNumber: this.state.email,
                 password: this.state.password
-            }).then( (res) =>{
+            }).then((res) => {
                 console.log(res.data.w_auth);
                 if (res.data.loginSuccess) {
                     axios.defaults.headers.common['w_auth'] = res.data.w_auth;
@@ -53,27 +53,29 @@ class Login extends Component {
                     route("/dash")
                 }
                 else {
-                    if(res.data.message)
-                    this.setState({
-                        modal:true,
-                        modaltext:res.data.message
-                    })
+                    if (res.data.message) {
+                        this.setState({
+                            modal: true,
+                            modaltext: res.data.message
+                        })
+                        this.setState({
+                            adebtn: true
+                        })
+                    }
                 }
             })
                 .catch(function () {
 
                 })
-            }
+        }
         else alert("Enter 10 digit number")
 
 
     }
     render() {
         return (
-
-
             <div className="login">
-                 
+
                 <Card className="login-card">
                     <CardBody>
                         <CardTitle style={ { fontSize: 'calc(1em + 1vw)', paddingTop: '50%' } }>
@@ -92,14 +94,14 @@ class Login extends Component {
                                 </div>
                                 <div>
                                     <button id="focus" type="submit" className="btn btn-primary" onClick={ this.submitBtn } >
-                                        
-                                    { this.state.adebtn ? <div>Sign up</div> : <div><Spinner
-                        as="span"
-                        animation="border"
-                        size="sm"
-                        role="status"
-                        aria-hidden="true"
-                    /> Loading</div> }
+
+                                        { this.state.adebtn ? <div>Sign up</div> : <div><Spinner
+                                            as="span"
+                                            animation="border"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        /> Loading</div> }
                                     </button>
                                 </div>
                             </div>
@@ -107,29 +109,29 @@ class Login extends Component {
                     </CardBody>
                 </Card>
                 <div class="fixed-box" >
-                    {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */}
-                       <img  style={{height:"100%"}}src={add1} alt="add1"/>
-                        <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
-                    {/* </h3> */}
+                    {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */ }
+                    <img style={ { height: "100%" } } src={ add1 } alt="add1" />
+                    <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
+                    {/* </h3> */ }
                 </div>
                 <div class="ex-fixed-box"></div>
 
 
-               < Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
-                        <ModalHeader  toggle={ this.toggle }>
-                            <div>
-                                Details
+                < Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
+                    <ModalHeader toggle={ this.toggle }>
+                        <div>
+                            Details
                             </div>
-                        </ModalHeader>
-                        <ModalBody>
-                           
-                            <h4>{ this.state.modaltext}<br/><strong>Call us at:- 7067117305</strong></h4>
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button color="secondary" onClick={ this.toggle }>Close</Button>
-                        </ModalFooter>
-                    </Modal>
-        
+                    </ModalHeader>
+                    <ModalBody>
+
+                        <h4>{ this.state.modaltext }<br /><strong>Call us at:- 7067117305</strong></h4>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="secondary" onClick={ this.toggle }>Close</Button>
+                    </ModalFooter>
+                </Modal>
+
 
             </div >
 

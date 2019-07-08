@@ -22,7 +22,7 @@ class AddEquipment extends Component {
             eqnarr: [],
             sci: "",
             nodata: true,
-            adebtn: true
+            adebtn: true,
         }
         this.submitBtn = this.submitBtn.bind(this);
     }
@@ -118,9 +118,10 @@ class AddEquipment extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <label>Enter Quantity</label>
-                        <input name="qun" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
+                <Col>
+                        <label>Location*</label> <br />
+                        <input name="loc" onChange={ (event) => this.handleUserInput(event) } type='text'></input>
+
                     </Col>
                     <Col>
                         <label>Unit </label> <br />
@@ -142,11 +143,11 @@ class AddEquipment extends Component {
                 <input name="cap" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
 
                 <Row>
-                    <Col>
-                        <label>Location*</label> <br />
-                        <input name="loc" onChange={ (event) => this.handleUserInput(event) } type='text'></input>
-
+                <Col>
+                        <label>Enter Quantity</label>
+                        <input name="qun" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
                     </Col>
+                   
 
                     <Col>
                         <label>Pin code</label> <br />

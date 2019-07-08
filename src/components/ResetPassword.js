@@ -13,7 +13,7 @@ class ResetPassword extends Component {
             _id: this.state.data.user._id,
             contactNumber: 9727780098, 
             oldPassword: 123456, 
-            newPassword: 987654
+            newPassword: 123456
 
         }
         console.log(sendData)

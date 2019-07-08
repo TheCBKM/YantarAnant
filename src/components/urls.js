@@ -1,12 +1,15 @@
 // export const link='http://ec2-34-243-4-177.eu-west-1.compute.amazonaws.com:3002';
 
-export const link='https://yantra123.herokuapp.com';
+// export const link='https://yantra123.herokuapp.com';
 
 // export const link='http://ec2-34-244-46-254.eu-west-1.compute.amazonaws.com:3002'
 
 // export const link='http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3002';
 
-// Aijazuddin Sheikh  9826297864 aijazuddin.seikh@gmail.com
+// export const link='http://localhost:3003';
+
+export const link='http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3003';
+
 export const getStorage=(item)=>(JSON.parse(localStorage.getItem(item)))
 
 export const setStorage=(item,data)=>(localStorage.setItem(item,JSON.stringify(data)))

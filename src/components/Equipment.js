@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import { link, route,getStorage  } from './urls';
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import AddEquipment from './AddEquipment'
 import Spinners from './Spinners';
@@ -13,8 +11,6 @@ class Equipment extends Component {
     constructor(props, context) {
         super(props, context);
         this.delet = this.delet.bind(this);
-
-
         this.state = {
             userdata: [],
             show: false,
@@ -22,30 +18,17 @@ class Equipment extends Component {
             nodata: true
         };
     }
-
-
-
-
-
-
-    componentWillMount() {
+     componentWillMount() {
 
         if (getStorage('uid')) {
             const obj =getStorage('uid')
             this.state.data = obj;
         }
-        else {
-      
+        else {      
             route("/login")
         }
-
-
-
     }
-
-
-
-    componentDidMount() {
+    componentDidMount() { 
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.get(`${link}/equipment/list`).then((res) => {
             console.log();

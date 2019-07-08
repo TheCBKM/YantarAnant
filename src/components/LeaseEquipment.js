@@ -18,9 +18,6 @@ class LeaseEquipment extends Component {
         };
 
     }
-
-
-
     componentWillMount() {
 
         if (getStorage('uid')) {
@@ -28,18 +25,11 @@ class LeaseEquipment extends Component {
             this.state.data = obj;
             console.log(obj)
         }
-        else {
-            
+        else {            
             route("/login")
         }
-
-
-
     }
-
-
-
-    componentDidMount(thi) {
+    componentDidMount() {
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.get(`${link}/requirement/recommendedList`).then((res) => {
             console.log();
