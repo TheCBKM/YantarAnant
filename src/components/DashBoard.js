@@ -25,6 +25,12 @@ class DashBoard extends Component {
         }
 
     }
+    changeTab(i){
+        // alert(i)
+this.setState({
+    activeTab:i
+})
+    }
 
     componentWillMount() {
 
@@ -114,24 +120,41 @@ class DashBoard extends Component {
                     </Row>
 
 
-
+              
                 </nav>
+                <Row>
+                <Col md={2}>
+                <div class="sidenav">
+  <a onClick={ () => this.changeTab(0) } href="#main-content">Equipment<br/>मशीन</a>
+  <br/>
+  <a onClick={ () => this.changeTab(1) } href="#main-content">Rent Equipment<br/>मशीन किराये से लें</a>
+  <br/>
+  <a onClick={ () => this.changeTab(2) } href="#main-content">Lease Equipment<br/>मशीन किराये से दे</a>
+  <br/>
+  <a onClick={ () => this.changeTab(3) } href="#main-content">Feed Back<br/>प्रतिक्रिया</a>
+  <br/>
+  <a onClick={ () => this.changeTab(5)} href="#main-content">Sell<br/></a>
+  <a onClick={ () => this.changeTab(6) } href="#main-content">Buy<br/></a>
+  <a onClick={ () => this.changeTab(7) } href="#main-content">your product</a>
+  <a onClick={ () => this.changeTab(4) } href="#main-content"><i style={ { color: "orange", textSize: "200px" } } class="fa fa-user" aria-hidden="true"></i></a>
+</div></Col>
+              <Col md={10}>  <div style={ { paddingBottom: "200px !important" } } >
 
-                <div style={ { paddingBottom: "200px !important" } } >
-
-                    <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab" >Equipment</h1></Tab>
-                        <Tab className="dash-tabh"  ><h1 className="dash-tab">Rent Equipment</h1></Tab>
-                        <Tab className="dash-tabh"  ><h1 className="dash-tab">Lease Equipment </h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">Feed Back</h1> </Tab>
+                    {/* <Tabs    activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) }     >
+                        <Tab className="dash-tabh" ><h1 className="dash-tab" >Equipment
+                        <br/>मशीन
+                        </h1></Tab>
+                        <Tab className="dash-tabh"  ><h1 className="dash-tab">Rent Equipment<br/>मशीन किराये से लें </h1></Tab>
+                        <Tab className="dash-tabh"  ><h1 className="dash-tab">Lease Equipment<br/>मशीन किराये से दे </h1> </Tab>
+                        <Tab className="dash-tabh" ><h1 className="dash-tab">Feed Back<br/>प्रतिक्रिया</h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab"> <i style={ { color: "orange", textSize: "200px" } } class="fa fa-user" aria-hidden="true"></i></h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab">Sell</h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab">Buy</h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab">your product</h1> </Tab>
 
-                    </Tabs>
+                    </Tabs> */}
 
-                    <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
+                    {/* <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
                         <Tab className="dash-tabh" ><h1 className="dash-tab" >मशीन </h1></Tab>
                         <Tab className="dash-tabh"  ><h1 className="dash-tab">मशीन किराये से लें </h1></Tab>
                         <Tab className="dash-tabh"  ><h1 className="dash-tab">मशीन किराये से दे</h1> </Tab>
@@ -143,20 +166,23 @@ class DashBoard extends Component {
 
                         <Tab className="dash-tabh" ><h1 className="dash-tab">your product</h1> </Tab>
 
-                    </Tabs>
-                    <section>
+                    </Tabs> */}
+                    <section id="main-content">
                         { this.toggelCategories() }
                         { console.log(this.state.activeTab) }
                     </section>
 
                 </div>
-                <div class="fixed-box" >
+                {/* <div class="fixed-box" > */}
                     {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */ }
-                    <img style={ { width: "250px", height: "250px" } } src={ add1 } alt="add1" />
-                    <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
+                    {/* <img style={ { width: "250px", height: "250px" } } src={ add1 } alt="add1" /> */}
+                    {/* <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee> */}
                     {/* </h3> */ }
-                </div>
-                <div class="ex-fixed-box"></div>
+                {/* </div>
+                <div class="ex-fixed-box"></div> */}
+                  <div class="ex-fixed-box"></div> 
+                </Col>
+                </Row>
             </div>
 
 

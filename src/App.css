@@ -221,7 +221,7 @@ display: flex
 
 .dash-tab{
 
-  font-size: calc(0.5em + .8vw);
+  font-size: calc(0.3em + 1vw);
   
 }
 
@@ -291,10 +291,10 @@ input[type=submit] {
 }
 
 .dash-tabh{
-  width:calc(100px + 100vw);
-  height: 60px !important;
-  align-content: center !important;
-margin-bottom: 200px !important;
+  /* width:calc(200px + 100vw); */
+  height: calc(80px + 1vw) !important;
+  /* align-content: center !important; */
+/* margin-bottom: 200px !important; */
  
 }
 
@@ -316,4 +316,48 @@ margin-bottom: 200px !important;
   background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("images/logo.png");  background-repeat:no-repeat;
   background-size:contain;
   width: 100%; 
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  /* position: fixed;  */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  /* background-color: rgb(17, 233, 204);  */
+  background: #2980B9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  /* font-size: 25px; */
+  color: #d65d17;
+  display: block;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #d65d17;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

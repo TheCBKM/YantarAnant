@@ -62,7 +62,7 @@ class ViewAllProduct extends Component {
     }
 checkIntereset(int){
     for(var i=0;i<int.length;i++){
-        if(int._id===this.state.companyId)
+        if(int[i]._id===this.state.data.companyId)
         return true
     }
     return false;
