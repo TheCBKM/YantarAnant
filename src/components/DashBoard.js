@@ -25,11 +25,11 @@ class DashBoard extends Component {
         }
 
     }
-    changeTab(i){
+    changeTab(i) {
         // alert(i)
-this.setState({
-    activeTab:i
-})
+        this.setState({
+            activeTab: i
+        })
     }
 
     componentWillMount() {
@@ -120,27 +120,27 @@ this.setState({
                     </Row>
 
 
-              
+
                 </nav>
                 <Row>
-                <Col md={2}>
-                <div class="sidenav">
-  <a onClick={ () => this.changeTab(0) } href="#main-content">Equipment<br/>मशीन</a>
-  <br/>
-  <a onClick={ () => this.changeTab(1) } href="#main-content">Rent Equipment<br/>मशीन किराये से लें</a>
-  <br/>
-  <a onClick={ () => this.changeTab(2) } href="#main-content">Lease Equipment<br/>मशीन किराये से दे</a>
-  <br/>
-  <a onClick={ () => this.changeTab(3) } href="#main-content">Feed Back<br/>प्रतिक्रिया</a>
-  <br/>
-  <a onClick={ () => this.changeTab(5)} href="#main-content">Sell<br/></a>
-  <a onClick={ () => this.changeTab(6) } href="#main-content">Buy<br/></a>
-  <a onClick={ () => this.changeTab(7) } href="#main-content">your product</a>
-  <a onClick={ () => this.changeTab(4) } href="#main-content"><i style={ { color: "orange", textSize: "200px" } } class="fa fa-user" aria-hidden="true"></i></a>
-</div></Col>
-              <Col md={10}>  <div style={ { paddingBottom: "200px !important" } } >
+                    <Col md={ 2 }>
+                        <div class="sidenav" id="side-nav">
+                            <a onClick={ () => this.changeTab(0) } href="#main-content">Equipment<br />मशीन</a>
+                            <br />
+                            <a onClick={ () => this.changeTab(1) } href="#main-content">Rent Equipment<br />मशीन किराये से लें</a>
+                            <br />
+                            <a onClick={ () => this.changeTab(2) } href="#main-content">Lease Equipment<br />मशीन किराये से दे</a>
+                            <br />
+                            <a onClick={ () => this.changeTab(3) } href="#main-content">Feed Back<br />प्रतिक्रिया</a>
+                            <br />
+                            <a onClick={ () => this.changeTab(5) } href="#main-content">Sell<br /></a>
+                            <a onClick={ () => this.changeTab(6) } href="#main-content">Buy<br /></a>
+                            <a onClick={ () => this.changeTab(7) } href="#main-content">your product</a>
+                            <a onClick={ () => this.changeTab(4) } href="#main-content"><i style={ { color: "orange", textSize: "200px" } } class="fa fa-user fa-3x" aria-hidden="true"></i></a>
+                        </div></Col>
+                    <Col md={ 10 }>  <div style={ { paddingBottom: "200px !important" } } >
 
-                    {/* <Tabs    activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) }     >
+                        {/* <Tabs    activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) }     >
                         <Tab className="dash-tabh" ><h1 className="dash-tab" >Equipment
                         <br/>मशीन
                         </h1></Tab>
@@ -154,7 +154,7 @@ this.setState({
 
                     </Tabs> */}
 
-                    {/* <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
+                        {/* <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
                         <Tab className="dash-tabh" ><h1 className="dash-tab" >मशीन </h1></Tab>
                         <Tab className="dash-tabh"  ><h1 className="dash-tab">मशीन किराये से लें </h1></Tab>
                         <Tab className="dash-tabh"  ><h1 className="dash-tab">मशीन किराये से दे</h1> </Tab>
@@ -167,21 +167,24 @@ this.setState({
                         <Tab className="dash-tabh" ><h1 className="dash-tab">your product</h1> </Tab>
 
                     </Tabs> */}
-                    <section id="main-content">
-                        { this.toggelCategories() }
-                        { console.log(this.state.activeTab) }
-                    </section>
+                        <section id="main-content">
+                            { this.toggelCategories() }
+                            { console.log(this.state.activeTab) }
+                        </section>
 
-                </div>
-                {/* <div class="fixed-box" > */}
-                    {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */ }
-                    {/* <img style={ { width: "250px", height: "250px" } } src={ add1 } alt="add1" /> */}
-                    {/* <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee> */}
-                    {/* </h3> */ }
-                {/* </div>
+                    </div>
+                        {/* <div class="fixed-box" > */ }
+                        {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */ }
+                        {/* <img style={ { width: "250px", height: "250px" } } src={ add1 } alt="add1" /> */ }
+                        {/* <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee> */ }
+                        {/* </h3> */ }
+                        {/* </div>
                 <div class="ex-fixed-box"></div> */}
-                  <div class="ex-fixed-box"></div> 
-                </Col>
+                        <div id="mybutton">
+                          <a href="#side-nav">  <button class="feedback" ><i style={ { color: "orange", textSize: "200px" } } class="fa fa-arrow-up fa-3x" aria-hidden="true"></i></button></a>
+                        </div>
+                        <div class="ex-fixed-box"></div>
+                    </Col>
                 </Row>
             </div>
 
