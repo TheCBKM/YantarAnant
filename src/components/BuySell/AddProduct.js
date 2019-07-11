@@ -63,10 +63,11 @@ class AddProduct extends Component {
             pinCode: this.state.pin
         }
         console.log(sendData)
-        // axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
-        // axios.post(`${link}/product/save`, sendData).then((res) => {
-        //     console.log(res.data);
-        // })
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.post(`${link}/product/save`, sendData).then((res) => {
+            console.log(res.data);
+            alert("product Added,wait for admin to approve")
+        })
     }
 
     render() {

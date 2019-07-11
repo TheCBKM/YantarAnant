@@ -14,6 +14,7 @@ class ViewAllProduct extends Component {
 
         }
         this.showIntreset = this.showIntreset.bind(this);
+        this.checkIntereset = this.checkIntereset.bind(this);
 
     }
     componentWillMount() {
@@ -59,7 +60,13 @@ class ViewAllProduct extends Component {
             window.location.reload()
         })
     }
-
+checkIntereset(int){
+    for(var i=0;i<int.length;i++){
+        if(int._id===this.state.companyId)
+        return true
+    }
+    return false;
+}
     render() {
         const data = this.state.prdata
         console.log(data)
@@ -70,15 +77,15 @@ class ViewAllProduct extends Component {
                         data.map((d, i) =>
                             <Col md={ 6 }>
                                 <ProductCard
-                                    name={ d.name } />
-                                { d.intresets.includes(this.state.data.companyId) ?
+                                    data={ d} />
+                                { this.checkIntereset(d.intresets) ?
                                     <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">Already Intreseted</button>
 
                                     :
                                     <button class="btn btn-outline-danger my-2 my-sm-0" onClick={ () => { this.showIntreset(d._id) } } type="submit">Show Intreset</button>
                                 }
 
-                            </Col>
+                            </Col> 
                         )
                     }
                 </Row>
