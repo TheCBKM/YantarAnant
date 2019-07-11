@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
 import { link, route, getStorage } from '../urls';
 import axios from 'axios';
+import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 
 class ViewProducts extends Component {
     constructor(props, context) {
         super(props, context);
         this.viewDetails = this.viewDetails.bind(this);
+        this.toggle = this.toggle.bind(this);
 
         this.state = {
             productData: [],
-            data:{}
+            data: {},
+            modal: false,
+            modaldata: null,
         };
     }
-    viewDetails(id){
-       alert(id)
-       axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
-       const sendData={
-           _id:id,
-           status:1
-       }
-       axios.post(`${link}/product/update`,sendData).then((res) => {
-        console.log(res.data);
-        alert("Product Approved")
-            window.location.reload()
-      })
+    viewDetails(data) {
+        if (data.length > 0)
+            this.setState({
+                modal: true,
+                modaldata: data
+            })
+        else
+            alert("no intersets yet")
+
     }
     componentWillMount() {
 
@@ -31,7 +32,7 @@ class ViewProducts extends Component {
             const obj = getStorage('uid')
             this.state.data = obj;
             console.log(this.state.data)
-           
+
         }
         else {
             route("/login")
@@ -49,6 +50,11 @@ class ViewProducts extends Component {
             console.log(this.state.productData)
 
         })
+    }
+    toggle() {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }));
     }
     render() {
         const details = this.state.productData
@@ -69,20 +75,38 @@ class ViewProducts extends Component {
                                 <td>{ d.company.name }</td>
                                 <td>{ d.company.contactNumber }</td>
                                 <td>
-                                    {d.status==0?
-                                    <button onClick={ () => this.viewDetails((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-primary custom-btn">waiting</button>
-                                    :d.status==1?
-                                    <button onClick={ () => this.viewDetails((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-success custom-btn">approved</button>
-                                    :
-                                    <button onClick={ () => this.viewDetails((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-danger custom-btn">not approved</button>
-                                }
+                                    { d.status == 0 ?
+                                        <button onClick={ () => this.viewDetails((d.intresets)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-primary custom-btn">waiting</button>
+                                        : d.status == 1 ?
+                                            <button onClick={ () => this.viewDetails((d.intresets)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-success custom-btn">approved</button>
+                                            :
+                                            <button onClick={ () => this.viewDetails((d.intresets)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-danger custom-btn">not approved</button>
+                                    }
                                 </td>
                             </tr>)
                         }
 
                     </tbody>
                 </table>
-                
+                < Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
+                    <ModalHeader toggle={ this.toggle }>
+                        <div>
+                            Interested People
+                            </div>
+                    </ModalHeader>
+                    <ModalBody>
+                        { this.state.modaldata ? this.state.modaldata.map(d =>
+
+                            ` ${d.contactPerson} ----- ${d.contactNumber} ------ ${d.city}`
+                        )
+
+                            : "" }
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="secondary" onClick={ this.toggle }>Close</Button>
+                    </ModalFooter>
+                </Modal>
+
             </div >
         );
     }

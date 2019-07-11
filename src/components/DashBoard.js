@@ -11,6 +11,7 @@ import { logo } from '../Appimages'
 import ViewProfile from './ViewProfile';
 import SlideHome from './SlideHome';
 import {add1} from "../Appimages"
+import AddProduct from './BuySell/AddProduct';
 
 
 class DashBoard extends Component {
@@ -18,7 +19,7 @@ class DashBoard extends Component {
         super(props);
         this.state = {
             data: {},
-            activeTab: 2
+            activeTab: 5
         }
 
     }
@@ -31,13 +32,8 @@ class DashBoard extends Component {
             console.log(obj)
         }
         else {
-
             route("/login")
-
         }
-
-
-
     }
 
     componentDidMount() {
@@ -61,6 +57,9 @@ class DashBoard extends Component {
         }
         else if (this.state.activeTab == 4) {
             return (<div style={ { paddingLeft: "20%", paddingRight: "20%", paddingTop: "5%" } }><ViewProfile /></div>)
+        }
+        else if (this.state.activeTab == 5) {
+            return (<div style={ { paddingLeft: "20%", paddingRight: "20%", paddingTop: "5%" } }><AddProduct/></div>)
         }
     }
     render() {
@@ -117,7 +116,8 @@ class DashBoard extends Component {
                         <Tab className="dash-tabh"  ><h1 className="dash-tab">Rent Equipment</h1></Tab>
                         <Tab className="dash-tabh"  ><h1 className="dash-tab">Lease Equipment </h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab">Feed Back</h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">                            <i style={ { color: "orange", textSize: "200px" } } class="fa fa-user" aria-hidden="true"></i></h1> </Tab>
+                        <Tab className="dash-tabh" ><h1 className="dash-tab"> <i style={ { color: "orange", textSize: "200px" } } class="fa fa-user" aria-hidden="true"></i></h1> </Tab>
+                        <Tab className="dash-tabh" ><h1 className="dash-tab">Sell</h1> </Tab>
 
 
                     </Tabs>
@@ -129,6 +129,7 @@ class DashBoard extends Component {
                         <Tab className="dash-tabh" ><h1 className="dash-tab">प्रतिक्रिया</h1> </Tab>
 
                         <Tab className="dash-tabh" ><h1 className="dash-tab">Profile</h1> </Tab>
+                        <Tab className="dash-tabh" ><h1 className="dash-tab">बेचना</h1> </Tab>
                     </Tabs>
                     <section>
                         { this.toggelCategories() }

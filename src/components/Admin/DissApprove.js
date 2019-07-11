@@ -6,10 +6,23 @@ class DisApprove extends Component {
     constructor(props, context) {
         super(props, context);
         this.approve = this.approve.bind(this);
+        this.delete = this.delete.bind(this);
 
         this.state = {
             productData: [],
         };
+    }
+    delete(id) {
+        alert(id)
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        const sendData = {
+            _id: id,
+        }
+        axios.delete(`${link}/product/delete`, sendData).then((res) => {
+            console.log(res.data);
+            alert("Product deleted")
+            window.location.reload()
+        })
     }
     approve(id){
        alert(id)
@@ -65,6 +78,7 @@ class DisApprove extends Component {
                                 <td>{ d.company.contactNumber }</td>
                                 <td>
                                     <button onClick={ () => this.approve((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-success custom-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                    <button onClick={ () => this.delete((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-danger custom-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
                                 </td>
                             </tr>)
