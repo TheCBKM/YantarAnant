@@ -16,7 +16,7 @@ class DisApprove extends Component {
         alert(id)
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         const sendData = {
-            _id: id,
+            data:{_id: id,}
         }
         axios.delete(`${link}/product/delete`, sendData).then((res) => {
             console.log(res.data);

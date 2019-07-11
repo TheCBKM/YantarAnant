@@ -22,7 +22,7 @@ class ToApprove extends Component {
         alert(id)
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         const sendData = {
-            _id: id,
+            data:{_id: id,}
         }
         axios.delete(`${link}/product/delete`, sendData).then((res) => {
             console.log(res.data);
@@ -132,6 +132,10 @@ class ToApprove extends Component {
                             disapprove
                         </button>
                     </ModalBody>
+                    <ModalFooter>
+
+                            <Button color="secondary" onClick={ this.toggle }>Close</Button>
+                        </ModalFooter>
 
                 </Modal>
             </div >

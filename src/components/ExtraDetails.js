@@ -22,7 +22,7 @@ class ExtraDetails extends Component {
         return (
             <div>
                 <div>
-                    <Button color="danger"  style={ { fontSize: "calc(5px + 2vh)" } } onClick={ this.toggle }>{ this.props.buttonLabel }Details</Button>
+                    <Button color="danger"  style={ { fontSize: "calc(3px + 1vh)" } } onClick={ this.toggle }>{ this.props.buttonLabel }Details</Button>
                     <Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
                         <ModalHeader  toggle={ this.toggle }>
                             <div>

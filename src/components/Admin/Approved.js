@@ -15,8 +15,8 @@ class Approved extends Component {
         this.state = {
             productData: [],
             modal: false,
-            id:'',
-            adminDesc:''
+            id: '',
+            adminDesc: ''
         };
     }
     handleUserInput(e) {
@@ -28,7 +28,7 @@ class Approved extends Component {
         alert(id)
         this.setState({
             modal: true,
-            id:id
+            id: id
         })
     }
     componentWillMount() {
@@ -55,7 +55,7 @@ class Approved extends Component {
     delete(id) {
         alert(id)
         const sendData = {
-            _id: id,
+            data:{_id: id,}
         }
         console.log(sendData)
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
@@ -103,7 +103,7 @@ class Approved extends Component {
                                     <button onClick={ () => this.delete((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-danger custom-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </td>
                             </tr>)
-                        }   
+                        }
 
                     </tbody>
                 </table>
@@ -117,11 +117,14 @@ class Approved extends Component {
                         <label>Description</label>
                         <input type="text" className="form-control"
                             name="adminDesc" onChange={ (event) => this.handleUserInput(event) } />
-                        <button id="focus" type="submit" className="btn btn-primary" onClick={()=> this.disapprove() } >
+                        <button id="focus" type="submit" className="btn btn-primary" onClick={ () => this.disapprove() } >
                             disapprove
                         </button>
                     </ModalBody>
+                    <ModalFooter>
 
+                        <Button color="secondary" onClick={ this.toggle }>Close</Button>
+                    </ModalFooter>
                 </Modal>
             </div >
         );

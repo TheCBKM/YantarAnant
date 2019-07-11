@@ -292,7 +292,7 @@ input[type=submit] {
 
 .dash-tabh{
   /* width:calc(200px + 100vw); */
-  height: calc(80px + 1vw) !important;
+  height: calc(50px + 1vw) !important;
   /* align-content: center !important; */
 /* margin-bottom: 200px !important; */
  
