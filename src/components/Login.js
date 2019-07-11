@@ -78,7 +78,7 @@ class Login extends Component {
 
                 <Card className="login-card">
                     <CardBody>
-                        <CardTitle style={ { fontSize: 'calc(1em + 1vw)', paddingTop: '50%' } }>
+                        <CardTitle style={ { fontSize: 'calc(1em + 1vw)', paddingTop: '20%' } }>
                         </CardTitle>
 
                         <CardSubtitle style={ { fontSize: 'calc(1em + 1vw)', paddingTop: '1em' } }>
