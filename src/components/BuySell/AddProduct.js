@@ -18,7 +18,8 @@ class AddProduct extends Component {
             owner: 'NA',
             manfac: 2019,
             location: 'NA',
-            pin: 452016
+            pin: 452016,
+            selectedFile:null
         }
         this.submitBtn = this.submitBtn.bind(this);
     }
@@ -62,14 +63,23 @@ class AddProduct extends Component {
             location: this.state.location,
             pinCode: this.state.pin
         }
-        console.log(sendData)
+        // const imgdata = new FormData() 
+        // imgdata.append('file', this.state.selectedFile)
+        // console.log(this.state.selectedFile)
+        // console.log(imgdata)
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.post(`${link}/product/save`, sendData).then((res) => {
             console.log(res.data);
             alert("product Added,wait for admin to approve")
         })
     }
+    onChangeHandler=event=>{
 
+        this.setState({
+            selectedFile: event.target.files[0],
+            loaded: 0,
+          })    
+    }
     render() {
         const eqnarr = this.state.eqnarr
 
@@ -112,8 +122,7 @@ class AddProduct extends Component {
                     name="pin" onChange={ (event) => this.handleUserInput(event) } />
 
                 <button id="focus" type="submit" className="btn btn-primary" onClick={ this.submitBtn } >Add Product to Sell</button>
-                <UploadImage />
-
+                <input type="file" name="selectedFile" onChange={this.onChangeHandler}/>
             </div>
         );
     }

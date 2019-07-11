@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { link, route, getStorage } from '../urls';
 import axios from 'axios';
+import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 
 class ToApprove extends Component {
     constructor(props, context) {
         super(props, context);
         this.approve = this.approve.bind(this);
         this.disapprove = this.disapprove.bind(this);
-        this.delete = this.delete.bind(this);
-
+        this.delete = this.delete.bind(this)
+        this.whyDisapprove = this.whyDisapprove.bind(this);
 
         this.state = {
             productData: [],
+            adminDesc: '',
+            modal: false,
+            id:''
         };
     }
     delete(id) {
@@ -39,13 +43,20 @@ class ToApprove extends Component {
             window.location.reload()
         })
     }
-    disapprove(id) {
-        alert(id)
+    whyDisapprove(id) {
+        this.setState({
+            modal: true,
+            id:id
+        })
+    }
+    disapprove() {
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         const sendData = {
-            _id: id,
-            status: -1
+            _id: this.state.id,
+            status: -1,
+            adminDesc: this.state.adminDesc
         }
+        console.log(sendData)
         axios.post(`${link}/product/update`, sendData).then((res) => {
             console.log(res.data);
             alert("Product dis-Approved")
@@ -73,6 +84,11 @@ class ToApprove extends Component {
 
         })
     }
+    handleUserInput(e) {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({ [name]: value });
+    }
     render() {
         const details = this.state.productData
         return (
@@ -93,7 +109,7 @@ class ToApprove extends Component {
                                 <td>{ d.company.contactNumber }</td>
                                 <td>
                                     <button onClick={ () => this.approve((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-success custom-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
-                                    <button onClick={ () => this.disapprove((d._id)) } type="button" data-toggle="tooltip" title="Diss-Approve" class="btn btn-danger custom-btn"><i class="fa fa-ban" aria-hidden="true"></i></button>
+                                    <button onClick={ () => this.whyDisapprove(d._id) } type="button" data-toggle="tooltip" title="Diss-Approve" class="btn btn-danger custom-btn"><i class="fa fa-ban" aria-hidden="true"></i></button>
                                     <button onClick={ () => this.delete((d._id)) } type="button" data-toggle="tooltip" title="Approve" class="btn btn-danger custom-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
                                 </td>
@@ -102,6 +118,22 @@ class ToApprove extends Component {
 
                     </tbody>
                 </table>
+                < Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
+                    <ModalHeader toggle={ this.toggle }>
+                        <div>
+                        Why disapprove?
+                            </div>
+                    </ModalHeader>
+                    <ModalBody>
+                        <label>Description</label>
+                        <input type="text" className="form-control"
+                            name="adminDesc" onChange={ (event) => this.handleUserInput(event) } />
+                        <button id="focus" type="submit" className="btn btn-primary" onClick={()=> this.disapprove() } >
+                            disapprove
+                        </button>
+                    </ModalBody>
+
+                </Modal>
             </div >
         );
     }

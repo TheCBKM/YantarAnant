@@ -39,3 +39,23 @@ const AppRouter = ()=>(
     </Switch>
 ) 
 export default AppRouter;
+
+// How to use buy and sell platform
+
+// admin
+// http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3000/admbuysell
+
+// Seller
+// in dashboard
+// http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3000/dash
+// sell tab add information
+// add product information 
+
+// Buyer
+// http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3000/viewallproduct 
+
+// Seller 
+// track the product details
+// http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3000/myproducts 
+
+
