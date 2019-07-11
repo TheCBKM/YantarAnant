@@ -10,8 +10,10 @@ import FeedBack from './FeedBack';
 import { logo } from '../Appimages'
 import ViewProfile from './ViewProfile';
 import SlideHome from './SlideHome';
-import {add1} from "../Appimages"
+import { add1 } from "../Appimages"
 import AddProduct from './BuySell/AddProduct';
+import ViewAllProduct from './BuySell/ViewAllProduct';
+import ViewProducts from './BuySell/ViewProducts';
 
 
 class DashBoard extends Component {
@@ -59,7 +61,13 @@ class DashBoard extends Component {
             return (<div style={ { paddingLeft: "20%", paddingRight: "20%", paddingTop: "5%" } }><ViewProfile /></div>)
         }
         else if (this.state.activeTab == 5) {
-            return (<div style={ { paddingLeft: "20%", paddingRight: "20%", paddingTop: "5%" } }><AddProduct/></div>)
+            return (<div style={ { paddingLeft: "20%", paddingRight: "20%", paddingTop: "5%" } }><AddProduct /></div>)
+        }
+        else if (this.state.activeTab == 6) {
+            return (<ViewAllProduct />)
+        }
+        else if (this.state.activeTab == 7) {
+            return (<ViewProducts />)
         }
     }
     render() {
@@ -118,7 +126,8 @@ class DashBoard extends Component {
                         <Tab className="dash-tabh" ><h1 className="dash-tab">Feed Back</h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab"> <i style={ { color: "orange", textSize: "200px" } } class="fa fa-user" aria-hidden="true"></i></h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab">Sell</h1> </Tab>
-
+                        <Tab className="dash-tabh" ><h1 className="dash-tab">Buy</h1> </Tab>
+                        <Tab className="dash-tabh" ><h1 className="dash-tab">your product</h1> </Tab>
 
                     </Tabs>
 
@@ -130,6 +139,10 @@ class DashBoard extends Component {
 
                         <Tab className="dash-tabh" ><h1 className="dash-tab">Profile</h1> </Tab>
                         <Tab className="dash-tabh" ><h1 className="dash-tab">बेचना</h1> </Tab>
+                        <Tab className="dash-tabh" ><h1 className="dash-tab">Buy</h1> </Tab>
+
+                        <Tab className="dash-tabh" ><h1 className="dash-tab">your product</h1> </Tab>
+
                     </Tabs>
                     <section>
                         { this.toggelCategories() }
@@ -138,10 +151,10 @@ class DashBoard extends Component {
 
                 </div>
                 <div class="fixed-box" >
-                    {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */}
-                       <img  style={{width:"250px", height:"250px"}}src={add1} alt="add1"/>
-                        <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
-                    {/* </h3> */}
+                    {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */ }
+                    <img style={ { width: "250px", height: "250px" } } src={ add1 } alt="add1" />
+                    <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee>
+                    {/* </h3> */ }
                 </div>
                 <div class="ex-fixed-box"></div>
             </div>

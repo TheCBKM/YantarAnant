@@ -10,6 +10,7 @@ import FeedBack from './FeedBack'
 import { Row, Col, Nav } from 'reactstrap'
 import { logo } from '../../Appimages'
 import { removeStorage } from '.././urls';
+import BuySell from './BuySell';
 
 
 class AdminDash extends Component {
@@ -19,20 +20,17 @@ class AdminDash extends Component {
             data: {},
             activeTab: 2
         }
-
     }
     componentDidMount() {
         document.title = 'Admin-YantarAnat';
       }
     componentWillMount() {
-
         if (getStorage('aid')) {
             const obj = getStorage('aid')
             this.state.data = obj;
             console.log(obj)
         }
         else {
-
             route("/admlogin");
         }
 
@@ -53,6 +51,9 @@ class AdminDash extends Component {
         }
         else if (this.state.activeTab == 4) {
             return (<div><FeedBack /></div>)
+        }
+        else if (this.state.activeTab == 5) {
+            return (<div><BuySell /></div>)
         }
     }
 
@@ -98,6 +99,7 @@ class AdminDash extends Component {
                     <Tab className="dash-tabh"  ><h1 className="dash-tab">Updates </h1> </Tab>
                     <Tab className="dash-tabh" ><h1 className="dash-tab">Requirments</h1> </Tab>
                     <Tab className="dash-tabh" ><h1 className="dash-tab">Feed Back</h1> </Tab>
+                    <Tab className="dash-tabh" ><h1 className="dash-tab">Buy&Sell</h1> </Tab>
 
 
                 </Tabs>

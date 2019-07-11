@@ -48,7 +48,7 @@ export default AppRouter;
 // Seller
 // in dashboard
 // http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3000/dash
-// sell tab add information
+// sell tab 
 // add product information 
 
 // Buyer
@@ -57,5 +57,16 @@ export default AppRouter;
 // Seller 
 // track the product details
 // http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3000/myproducts 
+
+
+// features not working 
+// delete product
+// add image  
+
+
+// prerequists 
+// login admin
+// login client 
+// different tabs
 
 
