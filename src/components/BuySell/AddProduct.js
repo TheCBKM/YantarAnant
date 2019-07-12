@@ -63,15 +63,25 @@ class AddProduct extends Component {
             location: this.state.location,
             pinCode: this.state.pin
         }
-        // const imgdata = new FormData() 
-        // imgdata.append('file', this.state.selectedFile)
-        // console.log(this.state.selectedFile)
-        // console.log(imgdata)
         axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
         axios.post(`${link}/product/save`, sendData).then((res) => {
+            console.log(res.data._id);
+            const imgdata = new FormData()
+        imgdata.append('pid',res.data._id); 
+        imgdata.append('file', this.state.selectedFile);        
+        console.log(this.state.selectedFile)
+        console.log(imgdata)
+        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+        axios.post(`${link}/product/upload`, imgdata).then((res) => {
             console.log(res.data);
+            alert("image uploaded")
+            
+        })
             alert("product Added,wait for admin to approve")
         })
+        
+
+        
     }
     onChangeHandler=event=>{
 
