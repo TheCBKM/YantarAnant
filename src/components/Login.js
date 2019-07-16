@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
-import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner'
 import { add1 } from '../Appimages'
+import axios from 'axios';
 
-import { link, route, setStorage, isNumber } from './urls';
+import { link, route, setStorage } from './urls';
 class Login extends Component {
     constructor(props) {
         super(props);

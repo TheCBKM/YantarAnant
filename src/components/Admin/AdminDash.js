@@ -4,6 +4,7 @@ import { link, route, getStorage, isNumber } from '../urls';
 import axios from 'axios';
 import Updates from './Updates';
 import ViewCompany from './ViewCompany';
+import Enquiry from './Enquiry';
 import MasterCategory from './MasterCategory'
 import Reqirments from './Reqirments'
 import FeedBack from './FeedBack'
@@ -53,6 +54,8 @@ class AdminDash extends Component {
             return (<div><FeedBack /></div>)
         }
         else if (this.state.activeTab == 5) {
+            return (<div><Enquiry /></div>)
+        }else if (this.state.activeTab == 6) {
             return (<div><BuySell /></div>)
         }
     }
@@ -99,6 +102,8 @@ class AdminDash extends Component {
                     <Tab className="dash-tabh"  ><h1 className="dash-tab">Updates </h1> </Tab>
                     <Tab className="dash-tabh" ><h1 className="dash-tab">Requirments</h1> </Tab>
                     <Tab className="dash-tabh" ><h1 className="dash-tab">Feed Back</h1> </Tab>
+                    <Tab className="dash-tabh" ><h1 className="dash-tab">Enquiry</h1> </Tab>
+
                     <Tab className="dash-tabh" ><h1 className="dash-tab">Buy&Sell</h1> </Tab>
 
 
