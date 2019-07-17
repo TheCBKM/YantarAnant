@@ -15,6 +15,7 @@ import AddProduct from './BuySell/AddProduct';
 import ViewAllProduct from './BuySell/ViewAllProduct';
 import BuySell from './Admin/BuySell';
 import ViewProducts from './BuySell/ViewProducts';
+import Register from './Register';
 
 const AppRouter = ()=>(
     <Switch>
@@ -33,6 +34,7 @@ const AppRouter = ()=>(
         <Route exact path="/viewallproduct" component={ViewAllProduct}></Route>
         <Route exact path="/admbuysell" component={BuySell}></Route>
         <Route exact path="/myproducts" component={ViewProducts}></Route>
+        <Route exact path="/register" component={Register}></Route>
 
 
 

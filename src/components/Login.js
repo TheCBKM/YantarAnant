@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
+import { Row, Col,Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardSubtitle, CardBody, Badge } from 'reactstrap';
 import Spinner from 'react-bootstrap/Spinner'
 import { add1 } from '../Appimages'
 import axios from 'axios';
@@ -18,7 +18,11 @@ class Login extends Component {
         }
         this.submitBtn = this.submitBtn.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.registerBtn = this.registerBtn.bind(this);
 
+    }
+    registerBtn() {
+        route('/register')
     }
     handleUserInput(e) {
         const name = e.target.name;
@@ -93,21 +97,31 @@ class Login extends Component {
                                         name="password" onChange={ (event) => this.handleUserInput(event) } />
                                 </div>
                                 <div>
-                                    <button id="focus" type="submit" className="btn btn-primary" onClick={ this.submitBtn } >
+                                    <Row>
+                                        <Col>
+                                            <button id="focus" type="submit" className="btn btn-primary" onClick={ this.submitBtn } >
 
-                                        { this.state.adebtn ? <div>Sign up</div> : <div><Spinner
-                                            as="span"
-                                            animation="border"
-                                            size="sm"
-                                            role="status"
-                                            aria-hidden="true"
-                                        /> Loading</div> }
-                                    </button>
+                                                { this.state.adebtn ? <div>Sign up</div> : <div><Spinner
+                                                    as="span"
+                                                    animation="border"
+                                                    size="sm"
+                                                    role="status"
+                                                    aria-hidden="true"
+                                                /> Loading</div> }
+                                            </button>
+                                        </Col>
+                                        <Col>
+                                            <button id="focus" type="submit" className="btn btn-primary" onClick={ this.registerBtn } >
+                                                Register
+                                    </button></Col>
+                                    </Row>
+
                                 </div>
                             </div>
                         </CardSubtitle>
                     </CardBody>
                 </Card>
+
                 <div class="fixed-box" >
                     {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */ }
                     <img style={ { height: "100%" } } src={ add1 } alt="add1" />

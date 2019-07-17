@@ -134,6 +134,8 @@ class AddREquip extends Component {
                             <option value="Feet">Feet</option>
                             <option value="Tyres">Tyres</option>
                             <option value="Litre">Litre</option>
+                            <option value="KW">KW</option>
+                            <option value="TPH">TPH</option>
                         </select>
                     </Col>
                 </Row>

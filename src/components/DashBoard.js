@@ -83,10 +83,7 @@ class DashBoard extends Component {
         return (
             <div navbar-dash>
                 <div id="cover-spin"></div>
-
-
                 <nav class=" navbar-dash " style={ { backgroundColor: " #fffc00;" } }>
-
                     {/*                     
                     <button class="btn btn-outline-primary my-2 my-sm-1 " type="submit">
                         <i style={ { color: "orange" } } class="fa fa-user  fa-3x" aria-hidden="true"></i><br/>
@@ -111,12 +108,7 @@ class DashBoard extends Component {
                         <Col className="navrow">
 
                             <i onClick={ () => { removeStorage('uid'); route("/login") } } style={ { color: "orange", textSize: "200px" } } class="fa fa-sign-out fa-3x" aria-hidden="true"><div style={ { fontSize: "calc(.2em + 1vh)" } }>Logout</div></i>
-
-
                         </Col>
-
-
-
                     </Row>
 
 
@@ -140,55 +132,19 @@ class DashBoard extends Component {
                         </div></Col>
                     <Col md={ 10 }>  <div style={ { paddingBottom: "200px !important" } } >
 
-                        {/* <Tabs    activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) }     >
-                        <Tab className="dash-tabh" ><h1 className="dash-tab" >Equipment
-                        <br/>मशीन
-                        </h1></Tab>
-                        <Tab className="dash-tabh"  ><h1 className="dash-tab">Rent Equipment<br/>मशीन किराये से लें </h1></Tab>
-                        <Tab className="dash-tabh"  ><h1 className="dash-tab">Lease Equipment<br/>मशीन किराये से दे </h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">Feed Back<br/>प्रतिक्रिया</h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab"> <i style={ { color: "orange", textSize: "200px" } } class="fa fa-user" aria-hidden="true"></i></h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">Sell</h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">Buy</h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">your product</h1> </Tab>
 
-                    </Tabs> */}
-
-                        {/* <Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId }) } ripple>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab" >मशीन </h1></Tab>
-                        <Tab className="dash-tabh"  ><h1 className="dash-tab">मशीन किराये से लें </h1></Tab>
-                        <Tab className="dash-tabh"  ><h1 className="dash-tab">मशीन किराये से दे</h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">प्रतिक्रिया</h1> </Tab>
-
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">Profile</h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">बेचना</h1> </Tab>
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">Buy</h1> </Tab>
-
-                        <Tab className="dash-tabh" ><h1 className="dash-tab">your product</h1> </Tab>
-
-                    </Tabs> */}
                         <section id="main-content">
                             { this.toggelCategories() }
                             { console.log(this.state.activeTab) }
                         </section>
-
                     </div>
-                        {/* <div class="fixed-box" > */ }
-                        {/* <h3 style={ { fontSize: "calc(.5em + 1vw)", color: "blue" } }> */ }
-                        {/* <img style={ { width: "250px", height: "250px" } } src={ add1 } alt="add1" /> */ }
-                        {/* <marquee>Space for Advertisements........... विज्ञापन के लिए स्थान </marquee> */ }
-                        {/* </h3> */ }
-                        {/* </div>
-                <div class="ex-fixed-box"></div> */}
                         <div id="mybutton">
-                          <a href="#side-nav">  <button class="feedback" ><i style={ { color: "orange", textSize: "200px" } } class="fa fa-arrow-up fa-3x" aria-hidden="true"></i></button></a>
+                            <a href="#side-nav">  <button class="feedback" ><i style={ { color: "orange", textSize: "200px" } } class="fa fa-arrow-up fa-3x" aria-hidden="true"></i></button></a>
                         </div>
                         <div class="ex-fixed-box"></div>
                     </Col>
                 </Row>
             </div>
-
-
         );
     }
 }

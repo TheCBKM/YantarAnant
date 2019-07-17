@@ -136,6 +136,8 @@ class AddEquipment extends Component {
                             <option value="Tyres">Tyres</option>
                             <option value="Litre">Litre</option>
                             <option value="KW">KW</option>
+                            <option value="TPH">TPH</option>
+
                         </select>
                     </Col>
                 </Row>
