@@ -2,13 +2,13 @@
 
 // export const link='https://yantra123.herokuapp.com';
 
-// export const link='http://ec2-34-244-46-254.eu-west-1.compute.amazonaws.com:3002'
+export const link='http://ec2-34-244-46-254.eu-west-1.compute.amazonaws.com:3002'
 
 // export const link='http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3002';
 
 // export const link='http://localhost:3003';
 
-export const link='http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3003';
+// export const link='http://ec2-34-245-168-207.eu-west-1.compute.amazonaws.com:3003';
 
 export const getStorage=(item)=>(JSON.parse(localStorage.getItem(item)))
 
