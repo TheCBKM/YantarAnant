@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
-import { link, route ,getStorage} from './urls';
+import { link, route, getStorage } from './urls';
 import Spinners from './Spinners';
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -35,35 +35,34 @@ class AddEquipment extends Component {
     }
 
     submitBtn() {
-        if(this.state.pin.length==6&&this.state.qun.length!=0&&this.state.cap.length!=0&&this.state.location!=="")
-        {
-        this.setState({
-            adebtn:false
-        })
-        console.log(this.state.eqnarr)
-        const sendData =
-        {
-            subcategory: this.state.eqnarr[this.state.eqid].id,
-            company: this.state.data.companyId,
-            equipmentStatus: "1",
-            location: this.state.loc,
-            pinCode: this.state.pin,
-            userdata: [],
-            subcatdataonclick: [],
-            quantity: this.state.qun,
-            capacity: this.state.cap,
-            unit: this.state.unit
-        }
-        console.log(sendData);
-        axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
-        axios.post(`${link}/equipment/save`, sendData)
-            .then((res) => {
-                console.log(res);
-                // alert("Equipment Added")
-                alert("Equipment added")
-                //route("/dash")
-               window.location.reload(); 
+        if (this.state.pin.length == 6 && this.state.qun.length != 0 && this.state.cap.length != 0 && this.state.location !== "") {
+            this.setState({
+                adebtn: false
             })
+            console.log(this.state.eqnarr)
+            const sendData =
+            {
+                subcategory: this.state.eqnarr[this.state.eqid].id,
+                company: this.state.data.companyId,
+                equipmentStatus: "1",
+                location: this.state.loc,
+                pinCode: this.state.pin,
+                userdata: [],
+                subcatdataonclick: [],
+                quantity: this.state.qun,
+                capacity: this.state.cap,
+                unit: this.state.unit
+            }
+            console.log(sendData);
+            axios.defaults.headers.common['w_auth'] = this.state.data.w_auth;
+            axios.post(`${link}/equipment/save`, sendData)
+                .then((res) => {
+                    console.log(res);
+                    // alert("Equipment Added")
+                    alert("Equipment added")
+                    //route("/dash")
+                    window.location.reload();
+                })
         }
         else alert("enter correct details")
     }
@@ -75,7 +74,7 @@ class AddEquipment extends Component {
             console.log(obj)
         }
         else {
-          
+
             route("/login")
             //window.location.reload(); 
         }
@@ -89,10 +88,7 @@ class AddEquipment extends Component {
             this.setState({
                 eqnarr: res.data,
                 nodata: false
-
             })
-
-
         })
     }
 
@@ -110,7 +106,7 @@ class AddEquipment extends Component {
                         <label>Equipments Name*</label>
 
                         <select name="eqid" onChange={ (event) => this.handleUserInput(event) }>
-                        <option value={ -1} >Choose........</option>
+                            <option value={ -1 } >Choose........</option>
                             { eqnarr.map((eqn, i) =>
                                 <option value={ i }>{ eqn.name }</option>
                             ) }
@@ -118,7 +114,7 @@ class AddEquipment extends Component {
                     </Col>
                 </Row>
                 <Row>
-                <Col>
+                    <Col>
                         <label>Location*</label> <br />
                         <input name="loc" onChange={ (event) => this.handleUserInput(event) } type='text'></input>
 
@@ -127,8 +123,8 @@ class AddEquipment extends Component {
                         <label>Unit </label> <br />
                         <select name="unit" onChange={ (event) => this.handleUserInput(event) }>
 
-                        <option value={ -1} >Choose........</option>
-                            <option value="Tonne">Tonne</option>
+                            <option value={ -1 } >Choose........</option>
+                            <option value="Tonne">Tonne </option>
                             <option value="Cum">Cum</option>
                             <option value="Meter">Meter</option>
                             <option value="Kgs">Kgs</option>
@@ -145,11 +141,11 @@ class AddEquipment extends Component {
                 <input name="cap" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
 
                 <Row>
-                <Col>
+                    <Col>
                         <label>Enter Quantity</label>
                         <input name="qun" type="number" onChange={ (event) => this.handleUserInput(event) } ></input>
                     </Col>
-                   
+
 
                     <Col>
                         <label>Pin code</label> <br />
