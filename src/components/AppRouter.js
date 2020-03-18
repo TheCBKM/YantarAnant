@@ -19,7 +19,7 @@ import Register from './Register';
 
 const AppRouter = ()=>(
     <Switch>
-        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/" component={AdminDash}></Route>
         <Route exact path="/career" component={Carrer}></Route>
         <Route exact path="/contact" component={Contact}></Route>
         <Route exact path="/aboutus" component={AboutUs}></Route>
