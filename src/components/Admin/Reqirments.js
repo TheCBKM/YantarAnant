@@ -24,7 +24,7 @@ class Requirments extends Component {
             this.state.data = obj;
         }
         else {
-            
+
             route("/admlogin")
         }
 
@@ -37,7 +37,7 @@ class Requirments extends Component {
         axios.delete(`${link}/requirement/delete`, sendData).then((res) => {
             console.log(res);
             // alert("Equipment Deleted")
-        window.location.reload();
+            window.location.reload();
             //route("/adm")
         })
 
@@ -67,13 +67,13 @@ class Requirments extends Component {
         const details = this.state.reqirdata
 
         return (
-            <div style={ { paddingTop: "2%" } }>
-     { this.state.nodata ?
+            <div style={{ paddingTop: "2%" }}>
+                {this.state.nodata ?
                     <div>Loading<br />
                         <Spinners />
                     </div>
-                    : <></> }
-                { (details.length == 0) ? <h3>No data yet</h3> :
+                    : <></>}
+                {(details.length == 0) ? <h3>No data yet</h3> :
                     <table class=" dash-table">
                         <thead>
                             <tr>
@@ -89,22 +89,22 @@ class Requirments extends Component {
                                 <th>Action</th>
                             </tr>
                         </thead> <tbody>
-                            { details.map(d =>
+                            {details.map(d =>
                                 <tr>
-                                    <td>{(d.subcategory)? d.subcategory.name:"No data" }</td>
-                                    <td>{ d.capacity }</td>
-                                    <td>{ d.tenure }</td>
-                                    <td>{ new Date(d.createdAt)
+                                    <td>{(d.subcategory) ? d.subcategory.name : "No data"}</td>
+                                    <td>{d.capacity}</td>
+                                    <td>{d.tenure}</td>
+                                    <td>{new Date(d.createdAt)
                                         .toString()
                                         .split(" ")
                                         .slice(0, 4)
-                                        .join(" ") }</td>
-                                    <td>{ d.company.name }</td>
-                                    <td>{ d.company.contactPerson }</td>
-                                    <td>{ d.location }</td>
-                                    <td>{ d.company.contactNumber }</td>
+                                        .join(" ")}</td>
+                                    <td>{d.company ? d.company.name : "No Data"}</td>
+                                    <td>{d.company ? d.company.contactPerson : "No Data"}</td>
+                                    <td>{d.location}</td>
+                                    <td>{d.company ? d.company.contactNumber : "No Data"}</td>
 
-                                    <td><div style={ { color: "red" } } onClick={ () => this.delet((d._id)) }>
+                                    <td><div style={{ color: "red" }} onClick={() => this.delet((d._id))}>
                                         <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
                                     </div></td>
                                 </tr>)
