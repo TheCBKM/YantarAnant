@@ -27,7 +27,7 @@ const AppRouter = ()=>(
         <Route exact path="/login" component={Login}></Route>  
         <Route exact path="/dash" component={DashBoard}></Route>  
         <Route exact path="/adm" component={AdminDash}></Route>
-        <Route exact path="/admlogin" component={AdminLogin}></Route>
+        <Route exact path="/adm/admlogin" component={AdminLogin}></Route>
         <Route exact path="/filter" component={FilterCompany}></Route>
         <Route exact path="/reset" component={ResetPassword}></Route>
         <Route exact path="/addproduct" component={AddProduct}></Route>

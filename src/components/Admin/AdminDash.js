@@ -32,7 +32,7 @@ class AdminDash extends Component {
             console.log(obj)
         }
         else {
-            route("/admlogin");
+            route("/adm/admlogin");
         }
 
     }
@@ -86,7 +86,7 @@ class AdminDash extends Component {
                         </Col>
                         <Col className="navrow">
 
-                            <i onClick={ () => { removeStorage('aid'); route("/admlogin"); } } style={ { color: "orange", textSize: "200px" } } class="fa fa-sign-out fa-3x" aria-hidden="true"><div style={ { fontSize: "calc(.2em + 1vh)" } }>Logout</div></i>
+                            <i onClick={ () => { removeStorage('aid'); route("/adm/admlogin"); } } style={ { color: "orange", textSize: "200px" } } class="fa fa-sign-out fa-3x" aria-hidden="true"><div style={ { fontSize: "calc(.2em + 1vh)" } }>Logout</div></i>
 
 
                         </Col>
