@@ -1,5 +1,5 @@
-export const link='http://ec2-34-243-4-177.eu-west-1.compute.amazonaws.com:3002';
-
+//export const link='http://ec2-34-243-4-177.eu-west-1.compute.amazonaws.com:3002';
+export const link= 'https://server.yantranant.in';
 // export const link='https://yantra123.herokuapp.com';
 // export const link='http://ec2-18-219-2-225.us-east-2.compute.amazonaws.com:3003'
 
